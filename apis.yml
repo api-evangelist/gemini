@@ -1,341 +1,373 @@
 name: Gemini
-description: Google's Gemini API provides access to state-of-the-art generative AI models for text generation, multimodal understanding, code generation, and more.
-image: https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg
+description: Google's Gemini API provides access to state-of-the-art generative 
+  AI models for text generation, multimodal understanding, code generation, and 
+  more.
+image: 
+  https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg
 tags:
-- artificial intelligence
-- generative ai
-- large language models
-- multimodal
-- machine learning
-- image generation
-- video generation
-- embeddings
-- function calling
-- agents
-- text-to-speech
-- document understanding
-- audio understanding
-- video understanding
-- deep research
-- batch processing
-- structured output
+  - artificial intelligence
+  - generative ai
+  - large language models
+  - multimodal
+  - machine learning
+  - image generation
+  - video generation
+  - embeddings
+  - function calling
+  - agents
+  - text-to-speech
+  - document understanding
+  - audio understanding
+  - video understanding
+  - deep research
+  - batch processing
+  - structured output
 created: '2024'
 modified: '2026-03-03'
 url: https://ai.google.dev/
 apis:
-- name: Gemini REST API
-  description: REST API for accessing Gemini models for text generation, chat, embeddings, and multimodal tasks
-  image: https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg
-  humanURL: https://ai.google.dev/api
-  baseURL: https://generativelanguage.googleapis.com
-  tags:
-  - rest
-  - generative ai
-  - chat
-  - text generation
-  - embeddings
-  - multimodal
-  - streaming
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/api/rest
-  - type: OpenAPI
-    url: https://generativelanguage.googleapis.com/$discovery/rest?version=v1beta&key=YOUR_API_KEY
-  - type: Authentication
-    url: https://ai.google.dev/gemini-api/docs/api-key
-  - type: API Reference
-    url: https://ai.google.dev/api/all-methods
-  - type: Function Calling
-    url: https://ai.google.dev/gemini-api/docs/function-calling
-  - type: Code Execution
-    url: https://ai.google.dev/gemini-api/docs/code-execution
-  - type: Grounding
-    url: https://ai.google.dev/gemini-api/docs/google-search
+  - name: Gemini REST API
+    description: >-
+      REST API for accessing Gemini models for text generation, chat, embeddings,
+      and multimodal tasks.
+    image: 
+      https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg
+    humanURL: https://ai.google.dev/api
+    baseURL: https://generativelanguage.googleapis.com
+    tags:
+      - rest
+      - generative ai
+      - chat
+      - text generation
+      - embeddings
+      - multimodal
+      - streaming
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/api/rest
+      - type: OpenAPI
+        url: 
+          https://generativelanguage.googleapis.com/$discovery/rest?version=v1beta&key=YOUR_API_KEY
+      - type: Authentication
+        url: https://ai.google.dev/gemini-api/docs/api-key
+      - type: API Reference
+        url: https://ai.google.dev/api/all-methods
+      - type: Function Calling
+        url: https://ai.google.dev/gemini-api/docs/function-calling
+      - type: Code Execution
+        url: https://ai.google.dev/gemini-api/docs/code-execution
+      - type: Grounding
+        url: https://ai.google.dev/gemini-api/docs/google-search
+      - type: Safety
+        url: https://ai.google.dev/gemini-api/docs/safety-settings
+      - type: Context Caching
+        url: https://ai.google.dev/gemini-api/docs/caching
+      - type: Tuning
+        url: https://ai.google.dev/api/tuning
+      - type: Tools
+        url: https://ai.google.dev/gemini-api/docs/tools
+      - type: Structured Output
+        url: https://ai.google.dev/gemini-api/docs/structured-output
+      - type: Thinking
+        url: https://ai.google.dev/gemini-api/docs/thinking
+      - type: System Instructions
+        url: https://ai.google.dev/gemini-api/docs/system-instructions
+      - type: Prompting Strategies
+        url: https://ai.google.dev/gemini-api/docs/prompting-strategies
+      - type: OpenAI Compatibility
+        url: https://ai.google.dev/gemini-api/docs/openai
+    contact:
+      - FN: Google AI Support
+        url: https://ai.google.dev/support
+  - name: Gemini Python SDK
+    description: >-
+      Python client library for the Gemini API.
+    humanURL: https://ai.google.dev/api/python
+    baseURL: https://pypi.org/project/google-generativeai/
+    tags:
+      - python
+      - sdk
+      - client library
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/api/python/google/generativeai
+      - type: GitHub
+        url: https://github.com/google/generative-ai-python
+      - type: Installation
+        url: https://pypi.org/project/google-generativeai/
+      - type: GitHub
+        url: https://github.com/googleapis/python-genai
+      - type: Installation
+        url: https://pypi.org/project/google-genai/
+  - name: Gemini Node.js SDK
+    description: >-
+      Node.js client library for the Gemini API.
+    humanURL: https://ai.google.dev/api/node
+    baseURL: https://www.npmjs.com/package/@google/generative-ai
+    tags:
+      - nodejs
+      - javascript
+      - typescript
+      - sdk
+      - client library
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/api/node
+      - type: GitHub
+        url: https://github.com/google/generative-ai-js
+      - type: Installation
+        url: https://www.npmjs.com/package/@google/generative-ai
+      - type: GitHub
+        url: https://github.com/googleapis/js-genai
+      - type: Installation
+        url: https://www.npmjs.com/package/@google/genai
+  - name: Gemini Go SDK
+    description: Go client library for the Gemini API, providing an interface 
+      for developers to integrate Google generative models into Go applications.
+    humanURL: https://ai.google.dev/gemini-api/docs/libraries
+    baseURL: https://pkg.go.dev/google.golang.org/genai
+    tags:
+      - go
+      - golang
+      - sdk
+      - client library
+    properties:
+      - type: Documentation
+        url: https://pkg.go.dev/google.golang.org/genai
+      - type: GitHub
+        url: https://github.com/googleapis/go-genai
+      - type: Installation
+        url: https://pkg.go.dev/google.golang.org/genai
+  - name: Gemini Java SDK
+    description: Java client library for the Gemini API, providing an interface 
+      for developers to integrate Google generative models into Java 
+      applications.
+    humanURL: https://ai.google.dev/gemini-api/docs/libraries
+    baseURL: https://central.sonatype.com/artifact/com.google.genai/google-genai
+    tags:
+      - java
+      - sdk
+      - client library
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/gemini-api/docs/libraries
+      - type: GitHub
+        url: https://github.com/googleapis/java-genai
+      - type: Installation
+        url: https://central.sonatype.com/artifact/com.google.genai/google-genai
+  - name: Gemini C# SDK
+    description: C# client library for the Gemini API, providing an interface 
+      for developers to integrate Google generative models into .NET 
+      applications.
+    humanURL: https://ai.google.dev/gemini-api/docs/libraries
+    baseURL: https://www.nuget.org/packages/Google.GenAI
+    tags:
+      - csharp
+      - dotnet
+      - sdk
+      - client library
+    properties:
+      - type: Documentation
+        url: https://googleapis.github.io/dotnet-genai/
+      - type: GitHub
+        url: https://github.com/googleapis/dotnet-genai
+      - type: Installation
+        url: https://www.nuget.org/packages/Google.GenAI
+  - name: Gemini Live API
+    description: Low-latency bidirectional streaming API enabling real-time 
+      voice and video interactions with Gemini models over WebSocket 
+      connections.
+    humanURL: https://ai.google.dev/gemini-api/docs/live
+    baseURL: https://generativelanguage.googleapis.com
+    tags:
+      - real-time
+      - streaming
+      - websocket
+      - voice
+      - video
+      - live
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/gemini-api/docs/live
+      - type: Capabilities Guide
+        url: https://ai.google.dev/gemini-api/docs/live-guide
+      - type: Tools
+        url: https://ai.google.dev/gemini-api/docs/live-tools
+  - name: Gemini Interactions API
+    description: Unified interface for interacting with Gemini models and 
+      agents, simplifying state management, tool orchestration, and long-running
+      tasks as an improved alternative to generateContent.
+    humanURL: https://ai.google.dev/gemini-api/docs/interactions
+    baseURL: https://generativelanguage.googleapis.com
+    tags:
+      - agents
+      - interactions
+      - state management
+      - tool orchestration
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/gemini-api/docs/interactions
+  - name: Gemini Image Generation API
+    description: Image generation capabilities through the Gemini API, 
+      supporting text-to-image generation, image editing, and multi-turn 
+      conversational editing.
+    humanURL: https://ai.google.dev/gemini-api/docs/image-generation
+    baseURL: https://generativelanguage.googleapis.com
+    tags:
+      - image generation
+      - text-to-image
+      - image editing
+      - generative ai
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/gemini-api/docs/image-generation
+  - name: Gemini Video Generation API
+    description: Video generation capabilities through the Gemini API powered by
+      Veo, supporting text-to-video and image-to-video generation in resolutions
+      up to 4K.
+    humanURL: https://ai.google.dev/gemini-api/docs/video
+    baseURL: https://generativelanguage.googleapis.com
+    tags:
+      - video generation
+      - text-to-video
+      - image-to-video
+      - veo
+      - generative ai
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/gemini-api/docs/video
+  - name: Gemini Text-to-Speech API
+    description: Native audio generation text-to-speech capabilities through the
+      Gemini API, supporting single and multi-speaker speech synthesis with 
+      natural language control over style, accent, pace, and tone.
+    humanURL: https://ai.google.dev/gemini-api/docs/speech-generation
+    baseURL: https://generativelanguage.googleapis.com
+    tags:
+      - text-to-speech
+      - tts
+      - audio generation
+      - speech synthesis
+      - multi-speaker
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/gemini-api/docs/speech-generation
+  - name: Gemini Files API
+    description: API for uploading and managing media files for use with Gemini 
+      models, supporting images, audio, video, and documents up to 2 GB per file
+      with 20 GB per project storage.
+    humanURL: https://ai.google.dev/gemini-api/docs/files
+    baseURL: https://generativelanguage.googleapis.com
+    tags:
+      - files
+      - upload
+      - media
+      - documents
+      - storage
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/gemini-api/docs/files
+      - type: API Reference
+        url: https://ai.google.dev/api/files
+      - type: File Input Methods
+        url: https://ai.google.dev/gemini-api/docs/file-input-methods
+  - name: Gemini Embeddings API
+    description: Text embedding capabilities through the Gemini API, generating 
+      vector representations for semantic search, classification, clustering, 
+      and retrieval augmented generation (RAG) applications.
+    humanURL: https://ai.google.dev/gemini-api/docs/embeddings
+    baseURL: https://generativelanguage.googleapis.com
+    tags:
+      - embeddings
+      - text embeddings
+      - semantic search
+      - vector search
+      - rag
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/gemini-api/docs/embeddings
+      - type: Model Card
+        url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001
+  - name: Gemini Batch API
+    description: Asynchronous batch processing API for submitting large volumes 
+      of Gemini API requests at 50 percent of the standard cost, with support 
+      for content generation, embeddings, and OpenAI compatibility.
+    humanURL: https://ai.google.dev/gemini-api/docs/batch-api
+    baseURL: https://generativelanguage.googleapis.com
+    tags:
+      - batch
+      - asynchronous
+      - bulk processing
+      - cost optimization
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/gemini-api/docs/batch-api
+  - name: Gemini Deep Research API
+    description: Agentic research capability powered by the Interactions API 
+      that autonomously plans, executes, and synthesizes multi-step research 
+      tasks using web search and URL context to produce detailed cited reports.
+    humanURL: https://ai.google.dev/gemini-api/docs/deep-research
+    baseURL: https://generativelanguage.googleapis.com
+    tags:
+      - deep research
+      - agents
+      - research
+      - web search
+      - reports
+    properties:
+      - type: Documentation
+        url: https://ai.google.dev/gemini-api/docs/deep-research
+common:
+  - type: Getting Started
+    url: https://ai.google.dev/gemini-api/docs/quickstart
+  - type: API Keys
+    url: https://aistudio.google.com/app/apikey
+  - type: Pricing
+    url: https://ai.google.dev/pricing
+  - type: Models
+    url: https://ai.google.dev/gemini-api/docs/models
+  - type: Rate Limits
+    url: https://ai.google.dev/gemini-api/docs/quota
+  - type: Terms of Service
+    url: https://ai.google.dev/terms
+  - type: Privacy Policy
+    url: https://policies.google.com/privacy
+  - type: Blog
+    url: https://developers.googleblog.com/
+  - type: Community
+    url: https://discuss.ai.google.dev/
+  - type: SDKs
+    url: https://ai.google.dev/gemini-api/docs/libraries
+  - type: Change Log
+    url: https://ai.google.dev/gemini-api/docs/changelog
+  - type: Status
+    url: https://aistudio.google.com/status
+  - type: Cookbook
+    url: https://github.com/google-gemini/cookbook
   - type: Safety
     url: https://ai.google.dev/gemini-api/docs/safety-settings
-  - type: Context Caching
-    url: https://ai.google.dev/gemini-api/docs/caching
-  - type: Tuning
-    url: https://ai.google.dev/api/tuning
-  - type: Tools
-    url: https://ai.google.dev/gemini-api/docs/tools
-  - type: Structured Output
-    url: https://ai.google.dev/gemini-api/docs/structured-output
-  - type: Thinking
-    url: https://ai.google.dev/gemini-api/docs/thinking
-  - type: System Instructions
-    url: https://ai.google.dev/gemini-api/docs/system-instructions
-  - type: Prompting Strategies
-    url: https://ai.google.dev/gemini-api/docs/prompting-strategies
-  - type: OpenAI Compatibility
-    url: https://ai.google.dev/gemini-api/docs/openai
-  contact:
-  - FN: Google AI Support
-    url: https://ai.google.dev/support
-- name: Gemini Python SDK
-  description: Python client library for the Gemini API
-  humanURL: https://ai.google.dev/api/python
-  baseURL: https://pypi.org/project/google-generativeai/
-  tags:
-  - python
-  - sdk
-  - client library
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/api/python/google/generativeai
-  - type: GitHub
-    url: https://github.com/google/generative-ai-python
-  - type: Installation
-    url: https://pypi.org/project/google-generativeai/
-  - type: GitHub
-    url: https://github.com/googleapis/python-genai
-  - type: Installation
-    url: https://pypi.org/project/google-genai/
-- name: Gemini Node.js SDK
-  description: Node.js client library for the Gemini API
-  humanURL: https://ai.google.dev/api/node
-  baseURL: https://www.npmjs.com/package/@google/generative-ai
-  tags:
-  - nodejs
-  - javascript
-  - typescript
-  - sdk
-  - client library
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/api/node
-  - type: GitHub
-    url: https://github.com/google/generative-ai-js
-  - type: Installation
-    url: https://www.npmjs.com/package/@google/generative-ai
-  - type: GitHub
-    url: https://github.com/googleapis/js-genai
-  - type: Installation
-    url: https://www.npmjs.com/package/@google/genai
-- name: Gemini Go SDK
-  description: Go client library for the Gemini API, providing an interface for developers to integrate Google generative models into Go applications.
-  humanURL: https://ai.google.dev/gemini-api/docs/libraries
-  baseURL: https://pkg.go.dev/google.golang.org/genai
-  tags:
-  - go
-  - golang
-  - sdk
-  - client library
-  properties:
-  - type: Documentation
-    url: https://pkg.go.dev/google.golang.org/genai
-  - type: GitHub
-    url: https://github.com/googleapis/go-genai
-  - type: Installation
-    url: https://pkg.go.dev/google.golang.org/genai
-- name: Gemini Java SDK
-  description: Java client library for the Gemini API, providing an interface for developers to integrate Google generative models into Java applications.
-  humanURL: https://ai.google.dev/gemini-api/docs/libraries
-  baseURL: https://central.sonatype.com/artifact/com.google.genai/google-genai
-  tags:
-  - java
-  - sdk
-  - client library
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/gemini-api/docs/libraries
-  - type: GitHub
-    url: https://github.com/googleapis/java-genai
-  - type: Installation
-    url: https://central.sonatype.com/artifact/com.google.genai/google-genai
-- name: Gemini C# SDK
-  description: C# client library for the Gemini API, providing an interface for developers to integrate Google generative models into .NET applications.
-  humanURL: https://ai.google.dev/gemini-api/docs/libraries
-  baseURL: https://www.nuget.org/packages/Google.GenAI
-  tags:
-  - csharp
-  - dotnet
-  - sdk
-  - client library
-  properties:
-  - type: Documentation
-    url: https://googleapis.github.io/dotnet-genai/
-  - type: GitHub
-    url: https://github.com/googleapis/dotnet-genai
-  - type: Installation
-    url: https://www.nuget.org/packages/Google.GenAI
-- name: Gemini Live API
-  description: Low-latency bidirectional streaming API enabling real-time voice and video interactions with Gemini models over WebSocket connections.
-  humanURL: https://ai.google.dev/gemini-api/docs/live
-  baseURL: https://generativelanguage.googleapis.com
-  tags:
-  - real-time
-  - streaming
-  - websocket
-  - voice
-  - video
-  - live
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/gemini-api/docs/live
-  - type: Capabilities Guide
-    url: https://ai.google.dev/gemini-api/docs/live-guide
-  - type: Tools
-    url: https://ai.google.dev/gemini-api/docs/live-tools
-- name: Gemini Interactions API
-  description: Unified interface for interacting with Gemini models and agents, simplifying state management, tool orchestration, and long-running tasks as an improved alternative to generateContent.
-  humanURL: https://ai.google.dev/gemini-api/docs/interactions
-  baseURL: https://generativelanguage.googleapis.com
-  tags:
-  - agents
-  - interactions
-  - state management
-  - tool orchestration
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/gemini-api/docs/interactions
-- name: Gemini Image Generation API
-  description: Image generation capabilities through the Gemini API, supporting text-to-image generation, image editing, and multi-turn conversational editing.
-  humanURL: https://ai.google.dev/gemini-api/docs/image-generation
-  baseURL: https://generativelanguage.googleapis.com
-  tags:
-  - image generation
-  - text-to-image
-  - image editing
-  - generative ai
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/gemini-api/docs/image-generation
-- name: Gemini Video Generation API
-  description: Video generation capabilities through the Gemini API powered by Veo, supporting text-to-video and image-to-video generation in resolutions up to 4K.
-  humanURL: https://ai.google.dev/gemini-api/docs/video
-  baseURL: https://generativelanguage.googleapis.com
-  tags:
-  - video generation
-  - text-to-video
-  - image-to-video
-  - veo
-  - generative ai
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/gemini-api/docs/video
-- name: Gemini Text-to-Speech API
-  description: Native audio generation text-to-speech capabilities through the Gemini API, supporting single and multi-speaker speech synthesis with natural language control over style, accent, pace, and tone.
-  humanURL: https://ai.google.dev/gemini-api/docs/speech-generation
-  baseURL: https://generativelanguage.googleapis.com
-  tags:
-  - text-to-speech
-  - tts
-  - audio generation
-  - speech synthesis
-  - multi-speaker
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/gemini-api/docs/speech-generation
-- name: Gemini Files API
-  description: API for uploading and managing media files for use with Gemini models, supporting images, audio, video, and documents up to 2 GB per file with 20 GB per project storage.
-  humanURL: https://ai.google.dev/gemini-api/docs/files
-  baseURL: https://generativelanguage.googleapis.com
-  tags:
-  - files
-  - upload
-  - media
-  - documents
-  - storage
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/gemini-api/docs/files
-  - type: API Reference
-    url: https://ai.google.dev/api/files
-  - type: File Input Methods
-    url: https://ai.google.dev/gemini-api/docs/file-input-methods
-- name: Gemini Embeddings API
-  description: Text embedding capabilities through the Gemini API, generating vector representations for semantic search, classification, clustering, and retrieval augmented generation (RAG) applications.
-  humanURL: https://ai.google.dev/gemini-api/docs/embeddings
-  baseURL: https://generativelanguage.googleapis.com
-  tags:
-  - embeddings
-  - text embeddings
-  - semantic search
-  - vector search
-  - rag
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/gemini-api/docs/embeddings
-  - type: Model Card
-    url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001
-- name: Gemini Batch API
-  description: Asynchronous batch processing API for submitting large volumes of Gemini API requests at 50 percent of the standard cost, with support for content generation, embeddings, and OpenAI compatibility.
-  humanURL: https://ai.google.dev/gemini-api/docs/batch-api
-  baseURL: https://generativelanguage.googleapis.com
-  tags:
-  - batch
-  - asynchronous
-  - bulk processing
-  - cost optimization
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/gemini-api/docs/batch-api
-- name: Gemini Deep Research API
-  description: Agentic research capability powered by the Interactions API that autonomously plans, executes, and synthesizes multi-step research tasks using web search and URL context to produce detailed cited reports.
-  humanURL: https://ai.google.dev/gemini-api/docs/deep-research
-  baseURL: https://generativelanguage.googleapis.com
-  tags:
-  - deep research
-  - agents
-  - research
-  - web search
-  - reports
-  properties:
-  - type: Documentation
-    url: https://ai.google.dev/gemini-api/docs/deep-research
-common:
-- type: Getting Started
-  url: https://ai.google.dev/gemini-api/docs/quickstart
-- type: API Keys
-  url: https://aistudio.google.com/app/apikey
-- type: Pricing
-  url: https://ai.google.dev/pricing
-- type: Models
-  url: https://ai.google.dev/gemini-api/docs/models
-- type: Rate Limits
-  url: https://ai.google.dev/gemini-api/docs/quota
-- type: Terms of Service
-  url: https://ai.google.dev/terms
-- type: Privacy Policy
-  url: https://policies.google.com/privacy
-- type: Blog
-  url: https://developers.googleblog.com/
-- type: Community
-  url: https://discuss.ai.google.dev/
-- type: SDKs
-  url: https://ai.google.dev/gemini-api/docs/libraries
-- type: Change Log
-  url: https://ai.google.dev/gemini-api/docs/changelog
-- type: Status
-  url: https://aistudio.google.com/status
-- type: Cookbook
-  url: https://github.com/google-gemini/cookbook
-- type: Safety
-  url: https://ai.google.dev/gemini-api/docs/safety-settings
-- type: Forum
-  url: https://discuss.ai.google.dev/c/gemini-api/4
-- type: Prompt Gallery
-  url: https://ai.google.dev/gemini-api/prompts
-- type: Google AI Studio
-  url: https://aistudio.google.com/
-- type: Tokens
-  url: https://ai.google.dev/gemini-api/docs/tokens
-- type: Image Understanding
-  url: https://ai.google.dev/gemini-api/docs/image-understanding
-- type: Audio Understanding
-  url: https://ai.google.dev/gemini-api/docs/audio
-- type: Video Understanding
-  url: https://ai.google.dev/gemini-api/docs/video-understanding
-- type: Document Understanding
-  url: https://ai.google.dev/gemini-api/docs/document-processing
-- type: URL Context
-  url: https://ai.google.dev/gemini-api/docs/url-context
-- type: Partner Integrations
-  url: https://ai.google.dev/gemini-api/docs/partner-integration
-- type: Thought Signatures
-  url: https://ai.google.dev/gemini-api/docs/thought-signatures
+  - type: Forum
+    url: https://discuss.ai.google.dev/c/gemini-api/4
+  - type: Prompt Gallery
+    url: https://ai.google.dev/gemini-api/prompts
+  - type: Google AI Studio
+    url: https://aistudio.google.com/
+  - type: Tokens
+    url: https://ai.google.dev/gemini-api/docs/tokens
+  - type: Image Understanding
+    url: https://ai.google.dev/gemini-api/docs/image-understanding
+  - type: Audio Understanding
+    url: https://ai.google.dev/gemini-api/docs/audio
+  - type: Video Understanding
+    url: https://ai.google.dev/gemini-api/docs/video-understanding
+  - type: Document Understanding
+    url: https://ai.google.dev/gemini-api/docs/document-processing
+  - type: URL Context
+    url: https://ai.google.dev/gemini-api/docs/url-context
+  - type: Partner Integrations
+    url: https://ai.google.dev/gemini-api/docs/partner-integration
+  - type: Thought Signatures
+    url: https://ai.google.dev/gemini-api/docs/thought-signatures
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com
