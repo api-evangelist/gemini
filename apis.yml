@@ -1,6 +1,11 @@
+aid: gemini
 name: Gemini
 description: Google's Gemini API provides access to state-of-the-art generative AI models for text generation, multimodal understanding, code generation, and more.
+type: Index
 image: https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg
+url: https://raw.githubusercontent.com/api-evangelist/gemini/refs/heads/main/apis.yml
+access: 3rd-Party
+specificationVersion: '0.19'
 tags:
   - Agents
   - Artificial Intelligence
@@ -20,8 +25,7 @@ tags:
   - Video Generation
   - Video Understanding
 created: '2024'
-modified: '2026-03-03'
-url: https://ai.google.dev/
+modified: '2026-04-18'
 apis:
   - name: Gemini REST API
     description: >-
@@ -289,56 +293,84 @@ apis:
       - type: Documentation
         url: https://ai.google.dev/gemini-api/docs/deep-research
 common:
-  - type: Getting Started
+  - type: GettingStarted
     url: https://ai.google.dev/gemini-api/docs/quickstart
-  - type: API Keys
+  - type: Authentication
     url: https://aistudio.google.com/app/apikey
   - type: Pricing
     url: https://ai.google.dev/pricing
   - type: Models
     url: https://ai.google.dev/gemini-api/docs/models
-  - type: Rate Limits
+  - type: RateLimits
     url: https://ai.google.dev/gemini-api/docs/quota
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://ai.google.dev/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://policies.google.com/privacy
   - type: Blog
     url: https://developers.googleblog.com/
-  - type: Community
+  - type: Support
     url: https://discuss.ai.google.dev/
-  - type: SDKs
+  - type: SDK
     url: https://ai.google.dev/gemini-api/docs/libraries
-  - type: Change Log
+  - type: ChangeLog
     url: https://ai.google.dev/gemini-api/docs/changelog
-  - type: Status
+  - type: StatusPage
     url: https://aistudio.google.com/status
-  - type: Cookbook
+  - type: GitHubRepository
     url: https://github.com/google-gemini/cookbook
-  - type: Safety
-    url: https://ai.google.dev/gemini-api/docs/safety-settings
-  - type: Forum
-    url: https://discuss.ai.google.dev/c/gemini-api/4
-  - type: Prompt Gallery
-    url: https://ai.google.dev/gemini-api/prompts
-  - type: Google AI Studio
+  - type: Console
     url: https://aistudio.google.com/
-  - type: Tokens
-    url: https://ai.google.dev/gemini-api/docs/tokens
-  - type: Image Understanding
-    url: https://ai.google.dev/gemini-api/docs/image-understanding
-  - type: Audio Understanding
-    url: https://ai.google.dev/gemini-api/docs/audio
-  - type: Video Understanding
-    url: https://ai.google.dev/gemini-api/docs/video-understanding
-  - type: Document Understanding
-    url: https://ai.google.dev/gemini-api/docs/document-processing
-  - type: URL Context
-    url: https://ai.google.dev/gemini-api/docs/url-context
-  - type: Partner Integrations
-    url: https://ai.google.dev/gemini-api/docs/partner-integration
-  - type: Thought Signatures
-    url: https://ai.google.dev/gemini-api/docs/thought-signatures
+  - type: Features
+    data:
+      - name: Multimodal Understanding
+        description: Process and understand text, images, audio, video, and documents in a single model.
+      - name: Function Calling
+        description: Define custom functions that Gemini can invoke to interact with external systems and APIs.
+      - name: Structured Output
+        description: Generate JSON responses conforming to specified schemas for reliable data extraction.
+      - name: Context Caching
+        description: Cache large context windows to reduce latency and cost for repeated queries.
+      - name: Code Execution
+        description: Execute Python code in a sandboxed environment for computational tasks.
+      - name: Grounding with Google Search
+        description: Ground model responses with real-time Google Search results for factual accuracy.
+      - name: Live Streaming API
+        description: Real-time bidirectional voice and video interactions over WebSocket connections.
+      - name: Image and Video Generation
+        description: Generate images and videos from text prompts using Gemini and Veo models.
+      - name: Text-to-Speech
+        description: Native audio generation with multi-speaker support and natural language style control.
+      - name: Deep Research
+        description: Autonomous multi-step research agent that synthesizes cited reports from web sources.
+      - name: Thinking Mode
+        description: Extended reasoning capability for complex problem-solving and analysis tasks.
+  - type: UseCases
+    data:
+      - name: AI-Powered Chatbots
+        description: Build conversational AI assistants with multimodal understanding and function calling.
+      - name: Document Processing
+        description: Extract structured data from documents, PDFs, and images using vision capabilities.
+      - name: Content Generation
+        description: Generate text, images, and video content with AI for marketing and creative workflows.
+      - name: Code Generation
+        description: Generate, explain, and debug code across multiple programming languages.
+      - name: Semantic Search
+        description: Build search systems using Gemini embeddings for semantic similarity matching.
+      - name: Real-Time Translation
+        description: Translate text and audio in real-time using multimodal capabilities.
+  - type: Integrations
+    data:
+      - name: Google Cloud Vertex AI
+        description: Access Gemini models through Vertex AI for enterprise-grade deployment and management.
+      - name: Google AI Studio
+        description: Prototype and test Gemini API calls with the web-based development environment.
+      - name: LangChain
+        description: Use Gemini as a provider in LangChain for building AI application pipelines.
+      - name: Firebase
+        description: Integrate Gemini with Firebase for mobile and web app AI features.
+      - name: OpenAI Compatibility
+        description: Use Gemini through OpenAI-compatible API endpoints for easy migration.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
