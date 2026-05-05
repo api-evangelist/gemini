@@ -1,0 +1,13 @@
+{
+  "repo": "gemini",
+  "feeds": [
+    {
+      "source": "https://developers.googleblog.com/",
+      "feed_url": "https://developers.googleblog.com/feed/",
+      "saved": 10,
+      "title": "Google Developers Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:28:07Z"
+}
