@@ -293,6 +293,8 @@ apis:
       - type: Documentation
         url: https://ai.google.dev/gemini-api/docs/deep-research
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/geminitrust
   - type: GettingStarted
     url: https://ai.google.dev/gemini-api/docs/quickstart
   - type: Authentication
