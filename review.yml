@@ -1,0 +1,49 @@
+review:
+  date: '2026-05-29'
+  reviewer: Kin Lane
+  task: Generate AsyncAPI 2.6 spec for Gemini cryptocurrency exchange WebSocket API
+  status: aborted
+  reason: repo-mismatch
+  details: >-
+    The /Users/kinlane/GitHub/all/gemini/ repository documents Google's Gemini
+    generative AI API (ai.google.dev / generativelanguage.googleapis.com), NOT
+    the Gemini cryptocurrency exchange (gemini.com / docs.gemini.com).
+  evidence:
+    - file: apis.yml
+      field: aid
+      value: gemini
+    - file: apis.yml
+      field: name
+      value: Gemini
+    - file: apis.yml
+      field: description
+      value: >-
+        Google's Gemini API provides access to state-of-the-art generative AI
+        models for text generation, multimodal understanding, code generation,
+        and more.
+    - file: apis.yml
+      field: image
+      value: https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg
+    - file: apis.yml
+      observation: >-
+        All listed APIs (Gemini REST API, Live API, Files API, Embeddings,
+        Batch, Image/Video/TTS Generation, Deep Research, Interactions, and
+        SDKs) point to ai.google.dev / generativelanguage.googleapis.com /
+        Google org GitHub repos. No reference to gemini.com, docs.gemini.com,
+        BTCUSD pairs, marketdata WebSocket endpoints, or the Gemini Trust
+        Company cryptocurrency exchange.
+  requested_targets:
+    - https://docs.gemini.com/websocket-api/
+    - wss://api.gemini.com/v1/marketdata/{symbol}
+    - wss://api.gemini.com/v2/marketdata
+    - wss://api.gemini.com/v1/order/events
+  action_taken: none
+  files_created:
+    - review.yml
+  files_modified: []
+  recommendation: >-
+    If the user wants an AsyncAPI spec for the Gemini cryptocurrency exchange,
+    a separate repository should be created (e.g., /Users/kinlane/GitHub/all/gemini-exchange/
+    or similar) with apis.yml referencing gemini.com. This repo should remain
+    dedicated to Google Gemini AI to avoid conflating two unrelated providers
+    that share the "Gemini" brand name.

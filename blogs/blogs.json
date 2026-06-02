@@ -2,12 +2,20 @@
   "repo": "gemini",
   "feeds": [
     {
-      "source": "https://developers.googleblog.com/",
+      "source": "https://developers.googleblog.com/feed/",
       "feed_url": "https://developers.googleblog.com/feed/",
-      "title": "Google Developers Blog",
-      "saved": 3
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://policies.google.com/privacy",
+      "feed_url": "https://policies.google.com/privacy",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "post_count": 29,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 41,
+  "fetched": "2026-06-01T23:35:02Z"
 }
