@@ -1,0 +1,942 @@
+# Gemini Exchange GraphQL Schema
+# Conceptual GraphQL schema for the Gemini cryptocurrency exchange (gemini.com)
+# Source: https://docs.gemini.com/rest-api/
+# Note: This is Gemini Exchange (crypto), NOT Google Gemini AI.
+
+# ─── Scalars ──────────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar Decimal
+scalar JSON
+
+# ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum OrderSide {
+  buy
+  sell
+}
+
+enum OrderType {
+  exchange_limit
+  exchange_stop_limit
+  exchange_market
+  auction_only_limit
+  indication_of_interest
+}
+
+enum OrderStatus {
+  live
+  partially_filled
+  filled
+  cancelled
+  closed
+  booked
+}
+
+enum TransferType {
+  Deposit
+  Withdrawal
+  Credit
+  Debit
+}
+
+enum AuctionResult {
+  success
+  failure
+  none
+}
+
+enum MarketStatusEnum {
+  open
+  closed
+  cancel_only
+  post_only
+  limit_only
+}
+
+enum ClearingStatus {
+  pending
+  confirmed
+  settled
+  rejected
+  expired
+}
+
+enum PositionSide {
+  long
+  short
+}
+
+enum StakingStatus {
+  active
+  inactive
+  pending
+}
+
+enum EarnStatus {
+  active
+  redeemed
+  pending
+}
+
+# ─── Market Data Types ────────────────────────────────────────────────────────
+
+"""
+A trading pair symbol on the Gemini Exchange (e.g., btcusd, ethusd, btceth).
+"""
+type Symbol {
+  symbol: String!
+  baseCurrency: String!
+  quoteCurrency: String!
+  tickSize: Decimal!
+  quoteIncrement: Decimal!
+  minOrderSize: Decimal!
+  status: SymbolStatus!
+  wrapEnabled: Boolean
+}
+
+"""
+Detailed metadata for a trading symbol including precision and size constraints.
+"""
+type SymbolDetails {
+  symbol: String!
+  baseCurrency: String!
+  quoteCurrency: String!
+  tickSize: Decimal!
+  quoteIncrement: Decimal!
+  minOrderSize: Decimal!
+  status: SymbolStatus!
+  wrapEnabled: Boolean
+  contractType: String
+  contractPriceCurrency: String
+}
+
+"""
+Current best bid, best ask, and last trade price for a symbol (v1 ticker).
+"""
+type Ticker {
+  symbol: String!
+  bid: Decimal!
+  ask: Decimal!
+  last: Decimal!
+  volume: TickerVolume!
+}
+
+"""
+Volume figures bundled with the v1 ticker.
+"""
+type TickerVolume {
+  baseCurrency: Decimal!
+  quoteCurrency: Decimal!
+  timestamp: DateTime!
+}
+
+"""
+Extended ticker with open, high, low, close, and 24-hour price changes (v2).
+"""
+type TickerV2 {
+  symbol: String!
+  open: Decimal!
+  high: Decimal!
+  low: Decimal!
+  close: Decimal!
+  changes: [Decimal!]!
+  bid: Decimal!
+  ask: Decimal!
+}
+
+"""
+Open/High/Low/Close/Volume candle for a specific time interval.
+"""
+type OHLCV {
+  time: DateTime!
+  open: Decimal!
+  high: Decimal!
+  low: Decimal!
+  close: Decimal!
+  volume: Decimal!
+}
+
+"""
+Current state of the order book for a symbol, containing bids and asks.
+"""
+type OrderBook {
+  symbol: String!
+  bids: [OrderBookEntry!]!
+  asks: [OrderBookEntry!]!
+}
+
+"""
+A single price level in the order book with price and available quantity.
+"""
+type OrderBookEntry {
+  price: Decimal!
+  amount: Decimal!
+  timestamp: DateTime
+}
+
+"""
+A single executed trade on the Gemini Exchange.
+"""
+type Trade {
+  timestamp: DateTime!
+  timestampms: String!
+  tid: String!
+  price: Decimal!
+  amount: Decimal!
+  exchange: String!
+  type: String!
+  broken: Boolean
+}
+
+"""
+Metadata about the daily auction mechanism for a trading symbol.
+"""
+type AuctionInfo {
+  closedUntil: DateTime
+  lastAuctionEid: String
+  lastAuctionPrice: Decimal
+  lastAuctionQuantity: Decimal
+  lastHighestBidPrice: Decimal
+  lastLowestAskPrice: Decimal
+  mostRecentIndicativePrice: Decimal
+  mostRecentIndicativeQuantity: Decimal
+  mostRecentHighestBidPrice: Decimal
+  mostRecentLowestAskPrice: Decimal
+  nextAuctionMs: DateTime
+  nextUpdateMs: DateTime
+}
+
+"""
+Historical result record for a completed auction.
+"""
+type AuctionHistory {
+  timestampms: String!
+  auctionId: String!
+  eid: String!
+  eventType: AuctionResult!
+  auctionResult: String
+  auctionPrice: Decimal
+  auctionQuantity: Decimal
+  highestBidPrice: Decimal
+  lowestAskPrice: Decimal
+  collar: AuctionCollar
+}
+
+"""
+Collar bounds for an auction event.
+"""
+type AuctionCollar {
+  auctionCollarPrice: Decimal!
+  auctionCollarWidth: Decimal!
+  highCollarPrice: Decimal!
+  lowCollarPrice: Decimal!
+}
+
+"""
+Live status of the current in-progress auction for a symbol.
+"""
+type CurrentAuction {
+  symbol: String!
+  closedUntil: DateTime
+  lastAuctionEid: String
+  lastAuctionPrice: Decimal
+  lastAuctionQuantity: Decimal
+  mostRecentIndicativePrice: Decimal
+  mostRecentIndicativeQuantity: Decimal
+  nextAuctionMs: DateTime
+  nextUpdateMs: DateTime
+}
+
+"""
+A single entry in the Gemini price feed for a currency pair.
+"""
+type PriceFeedRecord {
+  pair: String!
+  price: Decimal!
+  percentChange24h: Decimal
+}
+
+"""
+Overall market status for the Gemini Exchange.
+"""
+type MarketStatus {
+  status: MarketStatusEnum!
+  markets: [SymbolMarketStatus!]!
+}
+
+"""
+Per-symbol market status.
+"""
+type SymbolMarketStatus {
+  symbol: String!
+  status: MarketStatusEnum!
+}
+
+"""
+Status flags for a specific trading symbol.
+"""
+type SymbolStatus {
+  symbol: String!
+  enabled: Boolean!
+  onBrink: Boolean
+  message: String
+}
+
+"""
+Blockchain network configuration and fee information for a currency.
+"""
+type NetworkInfo {
+  currency: String!
+  network: String!
+  minConfirmations: Int
+  withdrawFee: Decimal
+  withdrawMinSize: Decimal
+  withdrawMaxSize: Decimal
+}
+
+# ─── Price Type ───────────────────────────────────────────────────────────────
+
+"""
+A monetary amount paired with its currency denomination.
+"""
+type Price {
+  amount: Decimal!
+  currency: String!
+}
+
+# ─── Account Types ────────────────────────────────────────────────────────────
+
+"""
+Top-level account object representing a Gemini Exchange user account.
+"""
+type Account {
+  accountName: String!
+  shortName: String
+  type: String!
+  created: DateTime!
+  balances: [AccountBalance!]!
+  settings: ApiSettings
+}
+
+"""
+Available and on-hold balance for a single currency in a Gemini account.
+"""
+type AccountBalance {
+  type: String!
+  currency: String!
+  amount: Decimal!
+  available: Decimal!
+  availableForWithdrawal: Decimal!
+}
+
+"""
+Account balance expressed as a notional (USD) equivalent value.
+"""
+type NotionalBalance {
+  currency: String!
+  amount: Decimal!
+  amountNotional: Decimal!
+  available: Decimal!
+  availableNotional: Decimal!
+  availableForWithdrawal: Decimal!
+  availableForWithdrawalNotional: Decimal!
+}
+
+"""
+A record of a cryptocurrency or fiat deposit into a Gemini account.
+"""
+type Deposit {
+  type: TransferType!
+  status: String!
+  timestampms: String!
+  eid: String!
+  currency: String!
+  amount: Decimal!
+  txHash: String
+  outputIdx: Int
+  destination: String
+  purpose: String
+  method: String
+  account: String
+}
+
+"""
+A record of a cryptocurrency or fiat withdrawal from a Gemini account.
+"""
+type Withdrawal {
+  type: TransferType!
+  status: String!
+  timestampms: String!
+  eid: String!
+  currency: String!
+  amount: Decimal!
+  fee: Decimal
+  txHash: String
+  destination: String
+  purpose: String
+  method: String
+  account: String
+  message: String
+}
+
+"""
+An internal transfer between Gemini sub-accounts or master/sub relationships.
+"""
+type Transfer {
+  type: TransferType!
+  status: String!
+  timestampms: String!
+  eid: String!
+  currency: String!
+  amount: Decimal!
+  senderAccountId: String
+  receiverAccountId: String
+  purpose: String
+  account: String
+}
+
+"""
+A cryptocurrency deposit address associated with a Gemini account and network.
+"""
+type CryptoAddress {
+  currency: String!
+  address: String!
+  timestamp: DateTime
+  label: String
+  network: String
+}
+
+"""
+A bank account linked to a Gemini account for fiat operations.
+"""
+type BankAccount {
+  id: String!
+  type: String!
+  name: String!
+  accountNumberLastFour: String!
+  status: String!
+  redactedAccountNumber: String
+  accountType: String
+}
+
+# ─── Earn / Staking Types ─────────────────────────────────────────────────────
+
+"""
+A Gemini Earn program position for a specific currency.
+"""
+type Earn {
+  currency: String!
+  amount: Decimal!
+  amountNotional: Decimal!
+  rate: Decimal!
+  duration: Int
+  earningsSinceInception: Decimal
+  status: EarnStatus!
+}
+
+"""
+Current interest rate offered by Gemini Earn for a currency.
+"""
+type EarningRate {
+  ticker: String!
+  provider: String
+  duration: Int
+  apy: Decimal!
+  netApy: Decimal
+  status: String!
+}
+
+"""
+Historical interest payment record from Gemini Earn.
+"""
+type EarningHistory {
+  currency: String!
+  amount: Decimal!
+  amountNotional: Decimal!
+  date: DateTime!
+  type: String!
+  apr: Decimal
+}
+
+"""
+A proof-of-stake staking position on Gemini.
+"""
+type Staking {
+  currency: String!
+  amount: Decimal!
+  amountNotional: Decimal!
+  rewardsEarned: Decimal
+  status: StakingStatus!
+  date: DateTime!
+}
+
+"""
+Current staked balance and pending rewards for a currency.
+"""
+type StakingBalance {
+  currency: String!
+  amount: Decimal!
+  amountNotional: Decimal!
+  rewardsCurrency: String!
+  rewardsEarned: Decimal!
+  rewardsEarnedNotional: Decimal!
+  status: StakingStatus!
+  estimatedApr: Decimal
+}
+
+# ─── Payment Types ────────────────────────────────────────────────────────────
+
+"""
+A Gemini Pay payment code for point-of-sale transactions at participating merchants.
+"""
+type GeminiPayCode {
+  code: String!
+  status: String!
+  createdAt: DateTime!
+  expiresAt: DateTime
+  currency: String!
+  amount: Decimal!
+  description: String
+}
+
+# ─── Order Types ──────────────────────────────────────────────────────────────
+
+"""
+A placed order on the Gemini Exchange with full lifecycle metadata.
+"""
+type Order {
+  orderId: String!
+  clientOrderId: String
+  symbol: String!
+  exchange: String!
+  price: Decimal!
+  avgExecutionPrice: Decimal
+  side: OrderSide!
+  type: String!
+  timestamp: DateTime!
+  timestampms: String!
+  isLive: Boolean!
+  isCancelled: Boolean!
+  isHidden: Boolean!
+  wasForced: Boolean!
+  executedAmount: Decimal!
+  remainingAmount: Decimal!
+  options: [String!]!
+  stopPrice: Decimal
+  account: String
+}
+
+"""
+Detailed status of a submitted order including fill information.
+"""
+type OrderStatus {
+  orderId: String!
+  clientOrderId: String
+  symbol: String!
+  exchange: String!
+  price: Decimal!
+  avgExecutionPrice: Decimal!
+  side: OrderSide!
+  type: String!
+  timestamp: DateTime!
+  timestampms: String!
+  isLive: Boolean!
+  isCancelled: Boolean!
+  isHidden: Boolean!
+  wasForced: Boolean!
+  executedAmount: Decimal!
+  remainingAmount: Decimal!
+  originalAmount: Decimal!
+  options: [String!]!
+  account: String
+}
+
+"""
+A historical closed or cancelled order record.
+"""
+type PastOrder {
+  orderId: String!
+  clientOrderId: String
+  symbol: String!
+  price: Decimal!
+  avgExecutionPrice: Decimal!
+  side: OrderSide!
+  type: String!
+  timestamp: DateTime!
+  timestampms: String!
+  isLive: Boolean!
+  isCancelled: Boolean!
+  executedAmount: Decimal!
+  remainingAmount: Decimal!
+  originalAmount: Decimal!
+  options: [String!]!
+  account: String
+  trades: [OrderExecution!]
+}
+
+"""
+An individual fill or partial fill execution tied to an order.
+"""
+type OrderExecution {
+  price: Decimal!
+  amount: Decimal!
+  timestamp: DateTime!
+  timestampms: String!
+  type: String!
+  aggressor: Boolean!
+  feeCurrency: String!
+  feeAmount: Decimal!
+  tid: String!
+  orderId: String!
+  clientOrderId: String
+  exchange: String!
+  isAuctionFill: Boolean!
+  break: String
+}
+
+"""
+Result returned when a cancel order operation is submitted.
+"""
+type CancelResult {
+  orderId: String!
+  clientOrderId: String
+  symbol: String!
+  price: Decimal!
+  avgExecutionPrice: Decimal!
+  side: OrderSide!
+  type: String!
+  timestamp: DateTime!
+  timestampms: String!
+  isLive: Boolean!
+  isCancelled: Boolean!
+  wasForced: Boolean!
+  executedAmount: Decimal!
+  remainingAmount: Decimal!
+  originalAmount: Decimal!
+  result: String!
+  reason: String
+}
+
+"""
+The set of currently active open orders for the authenticated account.
+"""
+type OpenOrders {
+  orders: [Order!]!
+  count: Int!
+}
+
+"""
+Result of a bulk cancel all orders operation.
+"""
+type BulkCancel {
+  result: String!
+  details: BulkCancelDetails
+}
+
+"""
+Detail counts from a bulk cancel operation.
+"""
+type BulkCancelDetails {
+  cancelledOrders: Int!
+  cancelRejects: [String!]
+}
+
+# ─── Fee Types ────────────────────────────────────────────────────────────────
+
+"""
+Tiered maker/taker fee schedule based on 30-day trading volume.
+"""
+type FeeSchedule {
+  apiMakerFeeBps: Int!
+  apiTakerFeeBps: Int!
+  apiAuctionOnlyMakerFeeBps: Int
+  apiAuctionOnlyTakerFeeBps: Int
+  apiFeeImprovementFeeBps: Int
+  fixedFee: Decimal
+  feeVolumeBands: [FeeVolumeBand!]
+}
+
+"""
+A single tier in the volume-based fee schedule.
+"""
+type FeeVolumeBand {
+  volume30Day: Decimal!
+  makerFeeBps: Int!
+  takerFeeBps: Int!
+}
+
+# ─── API Settings / Keys ──────────────────────────────────────────────────────
+
+"""
+Account-level API configuration and permission settings.
+"""
+type ApiSettings {
+  requireHeartbeat: Boolean!
+  heartbeatIntervalSec: Int
+  apiAuctions: Boolean
+}
+
+"""
+Metadata and permissions for an individual API key.
+"""
+type APIKey {
+  key: String!
+  status: String!
+  name: String
+  roles: [String!]!
+  allowList: [String!]
+  createdAt: DateTime!
+}
+
+# ─── Perpetuals / Futures Types ───────────────────────────────────────────────
+
+"""
+A perpetual swap or futures contract instrument available on Gemini.
+"""
+type Perpetual {
+  symbol: String!
+  baseCurrency: String!
+  quoteCurrency: String!
+  markPrice: Decimal
+  indexPrice: Decimal
+  fundingRate: Decimal
+  openInterest: Decimal
+  contractSize: Decimal!
+  tickSize: Decimal!
+  status: SymbolStatus!
+}
+
+"""
+An open futures or perpetual swap position held by the authenticated account.
+"""
+type FuturePosition {
+  symbol: String!
+  side: PositionSide!
+  amount: Decimal!
+  entryPrice: Decimal!
+  markPrice: Decimal!
+  liquidationPrice: Decimal
+  unrealizedPnl: Decimal!
+  realizedPnl: Decimal!
+  leverage: Decimal
+  margin: Decimal
+}
+
+"""
+An order placed in the Gemini futures or perpetuals market.
+"""
+type FutureOrder {
+  orderId: String!
+  symbol: String!
+  side: OrderSide!
+  type: String!
+  price: Decimal!
+  amount: Decimal!
+  executedAmount: Decimal!
+  remainingAmount: Decimal!
+  status: String!
+  timestamp: DateTime!
+  reduceOnly: Boolean
+}
+
+"""
+Account balance within the Gemini futures or derivatives subaccount.
+"""
+type FutureBalance {
+  currency: String!
+  amount: Decimal!
+  available: Decimal!
+  unrealizedPnl: Decimal!
+  marginUsed: Decimal!
+  equity: Decimal!
+}
+
+# ─── Clearing Types ───────────────────────────────────────────────────────────
+
+"""
+A bilateral clearing trade submission to the Gemini clearing platform.
+"""
+type Clearing {
+  clearingId: String!
+  symbol: String!
+  amount: Decimal!
+  price: Decimal!
+  side: OrderSide!
+  counterpartyId: String!
+  status: ClearingStatus!
+  timestamp: DateTime!
+  expiresAt: DateTime
+}
+
+"""
+An executed and settled clearing trade record.
+"""
+type ClearingTrade {
+  clearingId: String!
+  symbol: String!
+  amount: Decimal!
+  price: Decimal!
+  side: OrderSide!
+  counterpartyId: String!
+  status: ClearingStatus!
+  settledAt: DateTime
+  fee: Decimal
+}
+
+"""
+An approved counterparty or broker in the Gemini clearing network.
+"""
+type ClearingBroker {
+  brokerId: String!
+  name: String!
+  approvedAt: DateTime!
+  status: String!
+}
+
+# ─── Capital Account Types ────────────────────────────────────────────────────
+
+"""
+An institutional capital account on the Gemini platform.
+"""
+type CapitalAccount {
+  accountId: String!
+  name: String!
+  type: String!
+  createdAt: DateTime!
+  status: String!
+}
+
+"""
+Balance within a capital account expressed by currency.
+"""
+type CapitalBalance {
+  accountId: String!
+  currency: String!
+  amount: Decimal!
+  available: Decimal!
+  reserved: Decimal!
+}
+
+# ─── Utility Types ────────────────────────────────────────────────────────────
+
+"""
+A WebSocket heartbeat acknowledgment to keep a private API session alive.
+"""
+type Heartbeat {
+  result: String!
+  timestamp: DateTime!
+}
+
+"""
+Generic WebSocket event envelope for market data and order update streams.
+"""
+type Event {
+  type: String!
+  timestamp: DateTime
+  timestampms: String
+  eventId: String
+  sequence: Int
+  data: JSON
+}
+
+# ─── Root Types ───────────────────────────────────────────────────────────────
+
+type Query {
+  # Public market data queries
+  symbols: [Symbol!]!
+  symbolDetails(symbol: String!): SymbolDetails
+  ticker(symbol: String!): Ticker
+  tickerV2(symbol: String!): TickerV2
+  ohlcv(symbol: String!, resolution: String!, limit: Int): [OHLCV!]!
+  orderBook(symbol: String!, limit_bids: Int, limit_asks: Int): OrderBook
+  trades(symbol: String!, limit_trades: Int, since: String): [Trade!]!
+  auctionInfo(symbol: String!): AuctionInfo
+  auctionHistory(symbol: String!, limit_auction_results: Int, since: String): [AuctionHistory!]!
+  currentAuction(symbol: String!): CurrentAuction
+  priceFeed: [PriceFeedRecord!]!
+  marketStatus: MarketStatus
+  networkInfo(currency: String!): NetworkInfo
+  perpetuals: [Perpetual!]!
+
+  # Private account queries (requires HMAC authentication)
+  account: Account
+  balances: [AccountBalance!]!
+  notionalBalances(currency: String!): [NotionalBalance!]!
+  transfers(currency: String, limit_transfers: Int, timestamp: String): [Transfer!]!
+  deposits(currency: String, limit_transfers: Int, timestamp: String): [Deposit!]!
+  withdrawals(currency: String, limit_transfers: Int, timestamp: String): [Withdrawal!]!
+  cryptoDepositAddress(currency: String!, network: String): CryptoAddress
+  bankAccounts: [BankAccount!]!
+  openOrders: OpenOrders
+  pastOrders(symbol: String, limit_trades: Int, account: String): [PastOrder!]!
+  orderStatus(order_id: String!): OrderStatus
+  feeSchedule: FeeSchedule
+  apiSettings: ApiSettings
+  apiKeys: [APIKey!]!
+
+  # Earn / Staking queries
+  earnRates: [EarningRate!]!
+  earnBalances: [Earn!]!
+  earnHistory(currency: String, since: String, until: String): [EarningHistory!]!
+  stakingBalances: [StakingBalance!]!
+  stakingHistory(currency: String, since: String, until: String): [Staking!]!
+
+  # Payment queries
+  geminiPayCode: GeminiPayCode
+
+  # Futures / Perpetuals queries
+  futurePositions: [FuturePosition!]!
+  futureOrders: [FutureOrder!]!
+  futureBalances: [FutureBalance!]!
+
+  # Clearing queries
+  clearingTrades(since: String, until: String): [ClearingTrade!]!
+  clearingBrokers: [ClearingBroker!]!
+
+  # Capital account queries
+  capitalAccounts: [CapitalAccount!]!
+  capitalBalances(accountId: String): [CapitalBalance!]!
+}
+
+type Mutation {
+  # Order management
+  placeOrder(
+    symbol: String!
+    amount: String!
+    price: String
+    side: OrderSide!
+    type: OrderType!
+    options: [String]
+    clientOrderId: String
+    stopPrice: String
+    account: String
+  ): Order!
+
+  cancelOrder(order_id: String!): CancelResult!
+  cancelAllSessionOrders: BulkCancel!
+  cancelAllActiveOrders: BulkCancel!
+
+  # Withdrawals
+  withdraw(currency: String!, address: String!, amount: String!, network: String): Withdrawal!
+
+  # Earn
+  earnDeposit(currency: String!, amount: String!): Earn!
+  earnWithdrawal(currency: String!, amount: String!): Earn!
+
+  # Heartbeat (keep private WebSocket session alive)
+  heartbeat: Heartbeat!
+
+  # Clearing
+  submitClearing(
+    symbol: String!
+    amount: String!
+    price: String!
+    side: OrderSide!
+    counterpartyId: String!
+    expiresIn: Int
+  ): Clearing!
+
+  cancelClearing(clearingId: String!): Clearing!
+  confirmClearing(clearingId: String!): Clearing!
+}
