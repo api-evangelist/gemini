@@ -1,0 +1,1151 @@
+{
+  "item": [
+    {
+      "id": "b15d8b1f-6fbe-4c4b-8346-0a51cf5d36a5",
+      "name": "Models",
+      "description": {
+        "content": "List and inspect available Gemini models",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2da3bbd5-3505-4ebc-bade-f72baf7729a1",
+          "name": "List available models",
+          "request": {
+            "name": "List available models",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2c5af32-627d-4b22-a76b-e025f021e4e1",
+              "name": "List of models",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"models\": [\n    {\n      \"name\": \"string\",\n      \"baseModelId\": \"string\",\n      \"version\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"inputTokenLimit\": 1400,\n      \"outputTokenLimit\": 4724,\n      \"supportedGenerationMethods\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"baseModelId\": \"string\",\n      \"version\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"inputTokenLimit\": 4512,\n      \"outputTokenLimit\": 1544,\n      \"supportedGenerationMethods\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2398d024-2313-47d9-b06f-b7ef38af2eee",
+          "name": "Get model details",
+          "request": {
+            "name": "Get model details",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                ":model"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "model",
+                  "description": "(Required) Model identifier (e.g. \"gemini-1.5-pro\")"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4a4694d-a4de-41ea-8657-f2f746f07e14",
+              "name": "Model metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    ":model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "model",
+                      "description": "(Required) Model identifier (e.g. \"gemini-1.5-pro\")"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"baseModelId\": \"string\",\n  \"version\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"inputTokenLimit\": 3499,\n  \"outputTokenLimit\": 7021,\n  \"supportedGenerationMethods\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ec7bf015-9d49-42f7-bf20-6e94529ed0d0",
+      "name": "Generation",
+      "description": {
+        "content": "Generate content from prompts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aaa4f5c0-edb0-473f-a364-161bca3fdc8d",
+          "name": "Generate content",
+          "request": {
+            "name": "Generate content",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                "{{model}}:generateContent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": [\n    {\n      \"role\": \"<string>\",\n      \"parts\": [\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        }\n      ]\n    },\n    {\n      \"role\": \"<string>\",\n      \"parts\": [\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"systemInstruction\": {\n    \"role\": \"<string>\",\n    \"parts\": [\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      },\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"generationConfig\": {\n    \"temperature\": \"<number>\",\n    \"topP\": \"<number>\",\n    \"topK\": \"<integer>\",\n    \"candidateCount\": \"<integer>\",\n    \"maxOutputTokens\": \"<integer>\",\n    \"stopSequences\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"responseMimeType\": \"<string>\"\n  },\n  \"safetySettings\": [\n    {\n      \"category\": \"<string>\",\n      \"threshold\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"threshold\": \"<string>\"\n    }\n  ],\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f7998453-11f3-4ecb-96ce-468f5dadeb7c",
+              "name": "Generated content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    "{{model}}:generateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"role\": \"model\",\n      \"parts\": [\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"role\": \"user\",\n      \"parts\": [\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        }\n      ]\n    }\n  ],\n  \"systemInstruction\": {\n    \"role\": \"system\",\n    \"parts\": [\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      },\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      }\n    ]\n  },\n  \"generationConfig\": {\n    \"temperature\": 1398.0987330398086,\n    \"topP\": 6036.917561713224,\n    \"topK\": 5392,\n    \"candidateCount\": 2757,\n    \"maxOutputTokens\": 5691,\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"responseMimeType\": \"string\"\n  },\n  \"safetySettings\": [\n    {\n      \"category\": \"string\",\n      \"threshold\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"threshold\": \"string\"\n    }\n  ],\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"role\": \"user\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"finishReason\": \"string\",\n      \"index\": 9553\n    },\n    {\n      \"content\": {\n        \"role\": \"model\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"finishReason\": \"string\",\n      \"index\": 2876\n    }\n  ],\n  \"usageMetadata\": {\n    \"promptTokenCount\": 3910,\n    \"candidatesTokenCount\": 7480,\n    \"totalTokenCount\": 9694\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a51d2578-ae56-45a7-b720-4786164ee784",
+          "name": "Stream generated content",
+          "request": {
+            "name": "Stream generated content",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                "{{model}}:streamGenerateContent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": [\n    {\n      \"role\": \"<string>\",\n      \"parts\": [\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        }\n      ]\n    },\n    {\n      \"role\": \"<string>\",\n      \"parts\": [\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"systemInstruction\": {\n    \"role\": \"<string>\",\n    \"parts\": [\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      },\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"generationConfig\": {\n    \"temperature\": \"<number>\",\n    \"topP\": \"<number>\",\n    \"topK\": \"<integer>\",\n    \"candidateCount\": \"<integer>\",\n    \"maxOutputTokens\": \"<integer>\",\n    \"stopSequences\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"responseMimeType\": \"<string>\"\n  },\n  \"safetySettings\": [\n    {\n      \"category\": \"<string>\",\n      \"threshold\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"threshold\": \"<string>\"\n    }\n  ],\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "29c4ec20-d05b-4834-b321-42d4d344ee6e",
+              "name": "Streamed generated content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    "{{model}}:streamGenerateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"role\": \"model\",\n      \"parts\": [\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"role\": \"user\",\n      \"parts\": [\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        }\n      ]\n    }\n  ],\n  \"systemInstruction\": {\n    \"role\": \"system\",\n    \"parts\": [\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      },\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      }\n    ]\n  },\n  \"generationConfig\": {\n    \"temperature\": 1398.0987330398086,\n    \"topP\": 6036.917561713224,\n    \"topK\": 5392,\n    \"candidateCount\": 2757,\n    \"maxOutputTokens\": 5691,\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"responseMimeType\": \"string\"\n  },\n  \"safetySettings\": [\n    {\n      \"category\": \"string\",\n      \"threshold\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"threshold\": \"string\"\n    }\n  ],\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"role\": \"user\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"finishReason\": \"string\",\n      \"index\": 9553\n    },\n    {\n      \"content\": {\n        \"role\": \"model\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"finishReason\": \"string\",\n      \"index\": 2876\n    }\n  ],\n  \"usageMetadata\": {\n    \"promptTokenCount\": 3910,\n    \"candidatesTokenCount\": 7480,\n    \"totalTokenCount\": 9694\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "de1fd993-579a-4727-afc0-9a98a96fc852",
+      "name": "Embeddings",
+      "description": {
+        "content": "Create embeddings for text",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "903e4528-cd89-4e8c-ad0f-0870ff602927",
+          "name": "Embed content",
+          "request": {
+            "name": "Embed content",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                "{{model}}:embedContent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": {\n    \"role\": \"<string>\",\n    \"parts\": [\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      },\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"taskType\": \"<string>\",\n  \"title\": \"<string>\",\n  \"outputDimensionality\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cfbd3aad-d605-4e33-ac91-6e720da29c72",
+              "name": "Embedding result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    "{{model}}:embedContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": {\n    \"role\": \"system\",\n    \"parts\": [\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      },\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      }\n    ]\n  },\n  \"taskType\": \"<string>\",\n  \"title\": \"<string>\",\n  \"outputDimensionality\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"embedding\": {\n    \"values\": [\n      3770.345343768483,\n      4216.793973112849\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f512578a-58ba-4f80-a8d5-4458be2f40ed",
+          "name": "Batch embed contents",
+          "request": {
+            "name": "Batch embed contents",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                "{{model}}:batchEmbedContents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"content\": {\n        \"role\": \"<string>\",\n        \"parts\": [\n          {\n            \"text\": \"<string>\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"<string>\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"taskType\": \"<string>\",\n      \"title\": \"<string>\",\n      \"outputDimensionality\": \"<integer>\"\n    },\n    {\n      \"content\": {\n        \"role\": \"<string>\",\n        \"parts\": [\n          {\n            \"text\": \"<string>\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"<string>\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"taskType\": \"<string>\",\n      \"title\": \"<string>\",\n      \"outputDimensionality\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d096fbdf-dd15-42a9-8d2e-5f9939114498",
+              "name": "Batched embeddings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    "{{model}}:batchEmbedContents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"content\": {\n        \"role\": \"system\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"taskType\": \"string\",\n      \"title\": \"string\",\n      \"outputDimensionality\": 5962\n    },\n    {\n      \"content\": {\n        \"role\": \"model\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"taskType\": \"string\",\n      \"title\": \"string\",\n      \"outputDimensionality\": 2799\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"embeddings\": [\n    {\n      \"values\": [\n        1919.0802204596068,\n        2346.9558915365706\n      ]\n    },\n    {\n      \"values\": [\n        6013.87940715472,\n        7100.4043226988315\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "70ab3921-ca44-4490-85aa-093c85416381",
+      "name": "Utility",
+      "description": {
+        "content": "Token counting and other helpers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "030a8d3f-0a24-4fd2-a559-2c852872fabc",
+          "name": "Count tokens for a prompt",
+          "request": {
+            "name": "Count tokens for a prompt",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                "{{model}}:countTokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": [\n    {\n      \"role\": \"<string>\",\n      \"parts\": [\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        }\n      ]\n    },\n    {\n      \"role\": \"<string>\",\n      \"parts\": [\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "af20d63c-65f8-4525-9268-c86d3faf5939",
+              "name": "Token count",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    "{{model}}:countTokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"role\": \"model\",\n      \"parts\": [\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"role\": \"system\",\n      \"parts\": [\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalTokens\": 983\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "36960aff-3665-4b9f-b793-07ec6e3c0bc0",
+      "name": "Files",
+      "description": {
+        "content": "Upload and manage files used as model input",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "785fa00b-f180-437e-9144-7e807b5ac1ee",
+          "name": "List uploaded files",
+          "request": {
+            "name": "List uploaded files",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60756a76-c005-4f13-abfd-07edb095b564",
+              "name": "Files list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"files\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"mimeType\": \"string\",\n      \"sizeBytes\": \"string\",\n      \"createTime\": \"1986-07-21T08:56:49.691Z\",\n      \"updateTime\": \"1967-04-21T00:19:54.830Z\",\n      \"expirationTime\": \"2002-09-12T23:40:27.854Z\",\n      \"sha256Hash\": \"string\",\n      \"uri\": \"string\",\n      \"state\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"mimeType\": \"string\",\n      \"sizeBytes\": \"string\",\n      \"createTime\": \"2004-12-08T03:14:22.273Z\",\n      \"updateTime\": \"2000-06-08T01:37:45.755Z\",\n      \"expirationTime\": \"2021-04-15T15:37:12.130Z\",\n      \"sha256Hash\": \"string\",\n      \"uri\": \"string\",\n      \"state\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd483d4d-36cb-4e96-b01f-81b582b04fcb",
+          "name": "Upload a file",
+          "request": {
+            "name": "Upload a file",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4f4ba82f-97b9-4188-bc42-30c5ff1a3645",
+              "name": "File uploaded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"mimeType\": \"string\",\n  \"sizeBytes\": \"string\",\n  \"createTime\": \"1974-09-05T18:47:12.877Z\",\n  \"updateTime\": \"1979-07-06T09:56:47.240Z\",\n  \"expirationTime\": \"1993-06-28T08:24:42.944Z\",\n  \"sha256Hash\": \"string\",\n  \"uri\": \"string\",\n  \"state\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4eb502a-21e4-4d03-bb11-bef509cde930",
+          "name": "Get file metadata",
+          "request": {
+            "name": "Get file metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "files",
+                ":fileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fileId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28b09fab-b8e0-4688-8e7f-5c21595623c2",
+              "name": "File metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "files",
+                    ":fileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fileId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"mimeType\": \"string\",\n  \"sizeBytes\": \"string\",\n  \"createTime\": \"1974-09-05T18:47:12.877Z\",\n  \"updateTime\": \"1979-07-06T09:56:47.240Z\",\n  \"expirationTime\": \"1993-06-28T08:24:42.944Z\",\n  \"sha256Hash\": \"string\",\n  \"uri\": \"string\",\n  \"state\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46aeba4b-52e3-423f-b266-008079d83ae4",
+          "name": "Delete a file",
+          "request": {
+            "name": "Delete a file",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "files",
+                ":fileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fileId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60c83dad-b198-45d9-84af-26d1d2562744",
+              "name": "File deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "files",
+                    ":fileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fileId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://generativelanguage.googleapis.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Model identifier (e.g. \"gemini-1.5-pro\")",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "model"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cef04c14-a7af-4885-bf86-4198c9a32e2e",
+    "name": "Google Gemini API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Google Gemini generative AI models. Supports text generation,\nchat, multimodal input, embeddings, file management, token counting,\nand batch operations. Authenticated with an API key from Google AI Studio.\n\n\nContact Support:\n Name: Gemini API Documentation",
+      "type": "text/plain"
+    }
+  }
+}

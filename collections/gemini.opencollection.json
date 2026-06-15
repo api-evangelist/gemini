@@ -1,0 +1,295 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Gemini API",
+    "version": "v1beta"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List available models"
+        },
+        {
+          "info": {
+            "name": "Get model details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier (e.g. \"gemini-1.5-pro\")"
+              }
+            ]
+          },
+          "docs": "Get model details"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Generation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:generateContent",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier (e.g. \"gemini-1.5-pro\")"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate content"
+        },
+        {
+          "info": {
+            "name": "Stream generated content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:streamGenerateContent",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier (e.g. \"gemini-1.5-pro\")"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stream generated content"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Embeddings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Embed content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:embedContent",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier (e.g. \"gemini-1.5-pro\")"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Embed content"
+        },
+        {
+          "info": {
+            "name": "Batch embed contents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:batchEmbedContents",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier (e.g. \"gemini-1.5-pro\")"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch embed contents"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Utility",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Count tokens for a prompt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:countTokens",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier (e.g. \"gemini-1.5-pro\")"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Count tokens for a prompt"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Files",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List uploaded files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://generativelanguage.googleapis.com/v1beta/files",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List uploaded files"
+        },
+        {
+          "info": {
+            "name": "Upload a file",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/files",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a file"
+        },
+        {
+          "info": {
+            "name": "Get file metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://generativelanguage.googleapis.com/v1beta/files/:fileId",
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get file metadata"
+        },
+        {
+          "info": {
+            "name": "Delete a file",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://generativelanguage.googleapis.com/v1beta/files/:fileId",
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
