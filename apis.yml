@@ -26,7 +26,7 @@ tags:
 - Video Generation
 - Video Understanding
 created: '2024'
-modified: '2026-04-18'
+modified: '2026-06-22'
 apis:
 - name: Gemini REST API
   description: REST API for accessing Gemini models for text generation, chat, embeddings,
@@ -188,9 +188,10 @@ apis:
   - type: Tools
     url: https://ai.google.dev/gemini-api/docs/live-tools
 - name: Gemini Interactions API
-  description: Unified interface for interacting with Gemini models and agents, simplifying
-    state management, tool orchestration, and long-running tasks as an improved alternative
-    to generateContent.
+  description: A single unified endpoint for Gemini models and agents with server-side
+    state, background execution, tool combination, and multimodal generation. Now
+    generally available, it is Google's recommended interface for building agentic
+    workflows and the successor to generateContent for frontier model and agent capabilities.
   humanURL: https://ai.google.dev/gemini-api/docs/interactions
   baseURL: https://generativelanguage.googleapis.com
   tags:
@@ -198,9 +199,27 @@ apis:
   - Interactions
   - State Management
   - Tool Orchestration
+  - Background Execution
+  - Multimodal
+  - Managed Agents
+  - Deep Research
   properties:
   - type: Documentation
     url: https://ai.google.dev/gemini-api/docs/interactions
+  - type: Overview
+    url: https://ai.google.dev/gemini-api/docs/interactions-overview
+  - type: APIReference
+    url: https://ai.google.dev/api/interactions-api
+  - type: Authentication
+    url: https://ai.google.dev/gemini-api/docs/api-key
+  - type: GettingStarted
+    url: https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb
+  - type: Migration
+    url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions
+  - type: Coding Agents
+    url: https://ai.google.dev/gemini-api/docs/coding-agents
+  - type: Tools
+    url: https://ai.google.dev/gemini-api/docs/tools
 - name: Gemini Image Generation API
   description: Image generation capabilities through the Gemini API, supporting text-to-image
     generation, image editing, and multi-turn conversational editing.
