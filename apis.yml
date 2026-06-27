@@ -369,7 +369,7 @@ common:
   url: https://developers.googleblog.com/
 - type: Support
   url: https://discuss.ai.google.dev/
-- type: SDK
+- type: SDKs
   url: https://ai.google.dev/gemini-api/docs/libraries
 - type: ChangeLog
   url: https://ai.google.dev/gemini-api/docs/changelog
