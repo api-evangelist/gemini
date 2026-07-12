@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/gemini-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: apiKeyQuery
+  type: apiKey
+  in: query
+  parameter: key
+  description: Gemini API key from Google AI Studio
+  sources:
+  - openapi/gemini-openapi.yml
+- name: apiKeyHeader
+  type: apiKey
+  in: header
+  parameter: x-goog-api-key
+  description: Gemini API key passed via header
+  sources:
+  - openapi/gemini-openapi.yml

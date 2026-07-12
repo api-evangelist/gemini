@@ -349,6 +349,13 @@ apis:
   - type: GraphQL
     url: graphql/gemini-graphql.md
 common:
+- type: DomainSecurity
+  url: security/gemini-domain-security.yml
+- type: Authentication
+  url: authentication/gemini-authentication.yml
+- name: Agent Skills
+  url: https://developers.googleblog.com/closing-the-knowledge-gap-with-agent-skills/
+  type: AgentSkills
 - type: LinkedIn
   url: https://www.linkedin.com/company/geminitrust
 - type: GettingStarted
