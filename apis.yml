@@ -349,6 +349,8 @@ apis:
   - type: GraphQL
     url: graphql/gemini-graphql.md
 common:
+- type: AgenticAccess
+  url: agentic-access/gemini-agentic-access.yml
 - type: DomainSecurity
   url: security/gemini-domain-security.yml
 - type: Authentication
