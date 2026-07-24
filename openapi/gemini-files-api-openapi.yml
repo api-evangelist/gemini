@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: Google Gemini Embeddings Files API
+  description: 'REST API for Google Gemini generative AI models. Supports text generation,
+
+    chat, multimodal input, embeddings, file management, token counting,
+
+    and batch operations. Authenticated with an API key from Google AI Studio.
+
+    '
+  version: v1beta
+  contact:
+    name: Gemini API Documentation
+    url: https://ai.google.dev/api
+servers:
+- url: https://generativelanguage.googleapis.com
+  description: Production
+security:
+- apiKeyQuery: []
+- apiKeyHeader: []
+tags:
+- name: Files
+  description: Upload and manage files used as model input
+paths:
+  /v1beta/files:
+    get:
+      tags:
+      - Files
+      summary: List uploaded files
+      operationId: listFiles
+      parameters:
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Files list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  files:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/File'
+                  nextPageToken:
+                    type: string
+    post:
+      tags:
+      - Files
+      summary: Upload a file
+      operationId: uploadFile
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: File uploaded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+  /v1beta/files/{fileId}:
+    parameters:
+    - name: fileId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Files
+      summary: Get file metadata
+      operationId: getFile
+      responses:
+        '200':
+          description: File metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+    delete:
+      tags:
+      - Files
+      summary: Delete a file
+      operationId: deleteFile
+      responses:
+        '200':
+          description: File deleted
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    File:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        mimeType:
+          type: string
+        sizeBytes:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        expirationTime:
+          type: string
+          format: date-time
+        sha256Hash:
+          type: string
+          format: byte
+        uri:
+          type: string
+        state:
+          type: string
+  securitySchemes:
+    apiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: Gemini API key from Google AI Studio
+    apiKeyHeader:
+      type: apiKey
+      in: header
+      name: x-goog-api-key
+      description: Gemini API key passed via header

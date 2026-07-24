@@ -1,0 +1,198 @@
+openapi: 3.1.0
+info:
+  title: Google Gemini Embeddings Generation API
+  description: 'REST API for Google Gemini generative AI models. Supports text generation,
+
+    chat, multimodal input, embeddings, file management, token counting,
+
+    and batch operations. Authenticated with an API key from Google AI Studio.
+
+    '
+  version: v1beta
+  contact:
+    name: Gemini API Documentation
+    url: https://ai.google.dev/api
+servers:
+- url: https://generativelanguage.googleapis.com
+  description: Production
+security:
+- apiKeyQuery: []
+- apiKeyHeader: []
+tags:
+- name: Generation
+  description: Generate content from prompts
+paths:
+  /v1beta/models/{model}:generateContent:
+    post:
+      tags:
+      - Generation
+      summary: Generate content
+      operationId: generateContent
+      parameters:
+      - $ref: '#/components/parameters/Model'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateContentRequest'
+      responses:
+        '200':
+          description: Generated content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateContentResponse'
+  /v1beta/models/{model}:streamGenerateContent:
+    post:
+      tags:
+      - Generation
+      summary: Stream generated content
+      operationId: streamGenerateContent
+      parameters:
+      - $ref: '#/components/parameters/Model'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateContentRequest'
+      responses:
+        '200':
+          description: Streamed generated content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateContentResponse'
+components:
+  schemas:
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+        candidatesTokenCount:
+          type: integer
+        totalTokenCount:
+          type: integer
+    SafetySetting:
+      type: object
+      properties:
+        category:
+          type: string
+        threshold:
+          type: string
+    Part:
+      type: object
+      properties:
+        text:
+          type: string
+        inlineData:
+          type: object
+          properties:
+            mimeType:
+              type: string
+            data:
+              type: string
+              format: byte
+        fileData:
+          type: object
+          properties:
+            mimeType:
+              type: string
+            fileUri:
+              type: string
+    GenerateContentRequest:
+      type: object
+      required:
+      - contents
+      properties:
+        contents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Content'
+        systemInstruction:
+          $ref: '#/components/schemas/Content'
+        generationConfig:
+          $ref: '#/components/schemas/GenerationConfig'
+        safetySettings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetySetting'
+        tools:
+          type: array
+          items:
+            type: object
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          - system
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Part'
+    Candidate:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Content'
+        finishReason:
+          type: string
+        index:
+          type: integer
+        safetyRatings:
+          type: array
+          items:
+            type: object
+    GenerateContentResponse:
+      type: object
+      properties:
+        candidates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Candidate'
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
+    GenerationConfig:
+      type: object
+      properties:
+        temperature:
+          type: number
+        topP:
+          type: number
+        topK:
+          type: integer
+        candidateCount:
+          type: integer
+        maxOutputTokens:
+          type: integer
+        stopSequences:
+          type: array
+          items:
+            type: string
+        responseMimeType:
+          type: string
+  parameters:
+    Model:
+      name: model
+      in: path
+      required: true
+      description: Model identifier (e.g. "gemini-1.5-pro")
+      schema:
+        type: string
+  securitySchemes:
+    apiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: Gemini API key from Google AI Studio
+    apiKeyHeader:
+      type: apiKey
+      in: header
+      name: x-goog-api-key
+      description: Gemini API key passed via header

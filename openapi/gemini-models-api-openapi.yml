@@ -1,0 +1,112 @@
+openapi: 3.1.0
+info:
+  title: Google Gemini Embeddings Models API
+  description: 'REST API for Google Gemini generative AI models. Supports text generation,
+
+    chat, multimodal input, embeddings, file management, token counting,
+
+    and batch operations. Authenticated with an API key from Google AI Studio.
+
+    '
+  version: v1beta
+  contact:
+    name: Gemini API Documentation
+    url: https://ai.google.dev/api
+servers:
+- url: https://generativelanguage.googleapis.com
+  description: Production
+security:
+- apiKeyQuery: []
+- apiKeyHeader: []
+tags:
+- name: Models
+  description: List and inspect available Gemini models
+paths:
+  /v1beta/models:
+    get:
+      tags:
+      - Models
+      summary: List available models
+      operationId: listModels
+      parameters:
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of models
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListModelsResponse'
+  /v1beta/models/{model}:
+    get:
+      tags:
+      - Models
+      summary: Get model details
+      operationId: getModel
+      parameters:
+      - $ref: '#/components/parameters/Model'
+      responses:
+        '200':
+          description: Model metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Model'
+components:
+  parameters:
+    Model:
+      name: model
+      in: path
+      required: true
+      description: Model identifier (e.g. "gemini-1.5-pro")
+      schema:
+        type: string
+  schemas:
+    Model:
+      type: object
+      properties:
+        name:
+          type: string
+        baseModelId:
+          type: string
+        version:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        inputTokenLimit:
+          type: integer
+        outputTokenLimit:
+          type: integer
+        supportedGenerationMethods:
+          type: array
+          items:
+            type: string
+    ListModelsResponse:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+        nextPageToken:
+          type: string
+  securitySchemes:
+    apiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: Gemini API key from Google AI Studio
+    apiKeyHeader:
+      type: apiKey
+      in: header
+      name: x-goog-api-key
+      description: Gemini API key passed via header
