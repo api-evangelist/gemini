@@ -1,0 +1,469 @@
+openapi: 3.1.0
+info:
+  title: Google Gemini API
+  description: |
+    REST API for Google Gemini generative AI models. Supports text generation,
+    chat, multimodal input, embeddings, file management, token counting,
+    and batch operations. Authenticated with an API key from Google AI Studio.
+  version: "v1beta"
+  contact:
+    name: Gemini API Documentation
+    url: https://ai.google.dev/api
+servers:
+  - url: https://generativelanguage.googleapis.com
+    description: Production
+security:
+  - apiKeyQuery: []
+  - apiKeyHeader: []
+tags:
+  - name: Models
+    description: List and inspect available Gemini models
+  - name: Generation
+    description: Generate content from prompts
+  - name: Embeddings
+    description: Create embeddings for text
+  - name: Utility
+    description: Token counting and other helpers
+  - name: Files
+    description: Upload and manage files used as model input
+paths:
+  /v1beta/models:
+    get:
+      tags: [Models]
+      summary: List available models
+      operationId: listModels
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of models
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListModelsResponse'
+  /v1beta/models/{model}:
+    get:
+      tags: [Models]
+      summary: Get model details
+      operationId: getModel
+      parameters:
+        - $ref: '#/components/parameters/Model'
+      responses:
+        '200':
+          description: Model metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Model'
+  /v1beta/models/{model}:generateContent:
+    post:
+      tags: [Generation]
+      summary: Generate content
+      operationId: generateContent
+      parameters:
+        - $ref: '#/components/parameters/Model'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateContentRequest'
+      responses:
+        '200':
+          description: Generated content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateContentResponse'
+  /v1beta/models/{model}:streamGenerateContent:
+    post:
+      tags: [Generation]
+      summary: Stream generated content
+      operationId: streamGenerateContent
+      parameters:
+        - $ref: '#/components/parameters/Model'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateContentRequest'
+      responses:
+        '200':
+          description: Streamed generated content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateContentResponse'
+  /v1beta/models/{model}:embedContent:
+    post:
+      tags: [Embeddings]
+      summary: Embed content
+      operationId: embedContent
+      parameters:
+        - $ref: '#/components/parameters/Model'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbedContentRequest'
+      responses:
+        '200':
+          description: Embedding result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbedContentResponse'
+  /v1beta/models/{model}:batchEmbedContents:
+    post:
+      tags: [Embeddings]
+      summary: Batch embed contents
+      operationId: batchEmbedContents
+      parameters:
+        - $ref: '#/components/parameters/Model'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                requests:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/EmbedContentRequest'
+      responses:
+        '200':
+          description: Batched embeddings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  embeddings:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ContentEmbedding'
+  /v1beta/models/{model}:countTokens:
+    post:
+      tags: [Utility]
+      summary: Count tokens for a prompt
+      operationId: countTokens
+      parameters:
+        - $ref: '#/components/parameters/Model'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contents:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Content'
+      responses:
+        '200':
+          description: Token count
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalTokens:
+                    type: integer
+  /v1beta/files:
+    get:
+      tags: [Files]
+      summary: List uploaded files
+      operationId: listFiles
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Files list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  files:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/File'
+                  nextPageToken:
+                    type: string
+    post:
+      tags: [Files]
+      summary: Upload a file
+      operationId: uploadFile
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: File uploaded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+  /v1beta/files/{fileId}:
+    parameters:
+      - name: fileId
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Files]
+      summary: Get file metadata
+      operationId: getFile
+      responses:
+        '200':
+          description: File metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+    delete:
+      tags: [Files]
+      summary: Delete a file
+      operationId: deleteFile
+      responses:
+        '200':
+          description: File deleted
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    apiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: Gemini API key from Google AI Studio
+    apiKeyHeader:
+      type: apiKey
+      in: header
+      name: x-goog-api-key
+      description: Gemini API key passed via header
+  parameters:
+    Model:
+      name: model
+      in: path
+      required: true
+      description: Model identifier (e.g. "gemini-1.5-pro")
+      schema:
+        type: string
+  schemas:
+    Model:
+      type: object
+      properties:
+        name:
+          type: string
+        baseModelId:
+          type: string
+        version:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        inputTokenLimit:
+          type: integer
+        outputTokenLimit:
+          type: integer
+        supportedGenerationMethods:
+          type: array
+          items:
+            type: string
+    ListModelsResponse:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+        nextPageToken:
+          type: string
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum: [user, model, system]
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Part'
+    Part:
+      type: object
+      properties:
+        text:
+          type: string
+        inlineData:
+          type: object
+          properties:
+            mimeType:
+              type: string
+            data:
+              type: string
+              format: byte
+        fileData:
+          type: object
+          properties:
+            mimeType:
+              type: string
+            fileUri:
+              type: string
+    GenerationConfig:
+      type: object
+      properties:
+        temperature:
+          type: number
+        topP:
+          type: number
+        topK:
+          type: integer
+        candidateCount:
+          type: integer
+        maxOutputTokens:
+          type: integer
+        stopSequences:
+          type: array
+          items:
+            type: string
+        responseMimeType:
+          type: string
+    SafetySetting:
+      type: object
+      properties:
+        category:
+          type: string
+        threshold:
+          type: string
+    GenerateContentRequest:
+      type: object
+      required: [contents]
+      properties:
+        contents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Content'
+        systemInstruction:
+          $ref: '#/components/schemas/Content'
+        generationConfig:
+          $ref: '#/components/schemas/GenerationConfig'
+        safetySettings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SafetySetting'
+        tools:
+          type: array
+          items:
+            type: object
+    Candidate:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Content'
+        finishReason:
+          type: string
+        index:
+          type: integer
+        safetyRatings:
+          type: array
+          items:
+            type: object
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+        candidatesTokenCount:
+          type: integer
+        totalTokenCount:
+          type: integer
+    GenerateContentResponse:
+      type: object
+      properties:
+        candidates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Candidate'
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
+    EmbedContentRequest:
+      type: object
+      required: [content]
+      properties:
+        content:
+          $ref: '#/components/schemas/Content'
+        taskType:
+          type: string
+        title:
+          type: string
+        outputDimensionality:
+          type: integer
+    ContentEmbedding:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: number
+    EmbedContentResponse:
+      type: object
+      properties:
+        embedding:
+          $ref: '#/components/schemas/ContentEmbedding'
+    File:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        mimeType:
+          type: string
+        sizeBytes:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        expirationTime:
+          type: string
+          format: date-time
+        sha256Hash:
+          type: string
+          format: byte
+        uri:
+          type: string
+        state:
+          type: string

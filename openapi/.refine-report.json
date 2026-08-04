@@ -1,0 +1,22 @@
+{
+  "provider": "gemini",
+  "sources": [
+    "gemini-embeddings-api-openapi.yml",
+    "gemini-files-api-openapi.yml",
+    "gemini-generation-api-openapi.yml",
+    "gemini-models-api-openapi.yml",
+    "gemini-utility-api-openapi.yml"
+  ],
+  "outputs": [
+    "gemini-embeddings-api-openapi.yml",
+    "gemini-files-api-openapi.yml",
+    "gemini-generation-api-openapi.yml",
+    "gemini-models-api-openapi.yml",
+    "gemini-utility-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
