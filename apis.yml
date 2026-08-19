@@ -19,7 +19,7 @@ accessModel:
 image: https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg
 url: https://raw.githubusercontent.com/api-evangelist/gemini/refs/heads/main/apis.yml
 access: 3rd-Party
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 tags:
 - Agents
 - Artificial Intelligence
