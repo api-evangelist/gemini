@@ -1,0 +1,427 @@
+{
+  "item": [
+    {
+      "id": "960b7b4d-f2e9-4d3c-bbff-dd9194b20bce",
+      "name": "Files",
+      "description": {
+        "content": "Upload and manage files used as model input",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eea7ffa9-986c-4f4c-9f7a-d6a865996b1c",
+          "name": "List uploaded files",
+          "request": {
+            "name": "List uploaded files",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5484c883-6d0b-46be-b796-ff46a1c1849f",
+              "name": "Files list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"files\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"mimeType\": \"string\",\n      \"sizeBytes\": \"string\",\n      \"createTime\": \"2003-01-25T17:02:39.815Z\",\n      \"updateTime\": \"1985-07-31T01:04:02.222Z\",\n      \"expirationTime\": \"1990-01-06T20:14:28.569Z\",\n      \"sha256Hash\": \"string\",\n      \"uri\": \"string\",\n      \"state\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"mimeType\": \"string\",\n      \"sizeBytes\": \"string\",\n      \"createTime\": \"1971-10-08T21:59:46.825Z\",\n      \"updateTime\": \"1974-05-29T03:30:12.686Z\",\n      \"expirationTime\": \"2020-08-11T02:01:34.271Z\",\n      \"sha256Hash\": \"string\",\n      \"uri\": \"string\",\n      \"state\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f62458b1-974d-4af7-83e7-f19bff16bacb",
+          "name": "Upload a file",
+          "request": {
+            "name": "Upload a file",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "752a3ef7-5ba1-4bce-b3c2-0004181d1913",
+              "name": "File uploaded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"mimeType\": \"string\",\n  \"sizeBytes\": \"string\",\n  \"createTime\": \"1952-08-13T01:31:50.673Z\",\n  \"updateTime\": \"1955-04-13T08:13:17.529Z\",\n  \"expirationTime\": \"1981-05-26T13:04:07.818Z\",\n  \"sha256Hash\": \"string\",\n  \"uri\": \"string\",\n  \"state\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8ca3c94-edc3-4bb2-8355-e381f4f718cb",
+          "name": "Get file metadata",
+          "request": {
+            "name": "Get file metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "files",
+                ":fileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fileId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5264ba7-6f6e-48a1-b482-4717a9b5c688",
+              "name": "File metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "files",
+                    ":fileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fileId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"displayName\": \"string\",\n  \"mimeType\": \"string\",\n  \"sizeBytes\": \"string\",\n  \"createTime\": \"1952-08-13T01:31:50.673Z\",\n  \"updateTime\": \"1955-04-13T08:13:17.529Z\",\n  \"expirationTime\": \"1981-05-26T13:04:07.818Z\",\n  \"sha256Hash\": \"string\",\n  \"uri\": \"string\",\n  \"state\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ebb4f604-05e6-452a-a355-821efceb462d",
+          "name": "Delete a file",
+          "request": {
+            "name": "Delete a file",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "files",
+                ":fileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fileId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c68d2fd-3ec5-490b-bca5-9083e2375429",
+              "name": "File deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "files",
+                    ":fileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fileId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://generativelanguage.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "65303dfe-3027-41dd-9f52-42561b678429",
+    "name": "Google Gemini Embeddings Files API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Google Gemini generative AI models. Supports text generation,\nchat, multimodal input, embeddings, file management, token counting,\nand batch operations. Authenticated with an API key from Google AI Studio.\n\n\nContact Support:\n Name: Gemini API Documentation",
+      "type": "text/plain"
+    }
+  }
+}

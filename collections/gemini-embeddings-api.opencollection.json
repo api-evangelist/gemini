@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Gemini Embeddings API",
+    "version": "v1beta"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Embeddings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Embed content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:embedContent",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier (e.g. \"gemini-1.5-pro\")"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Embed content"
+        },
+        {
+          "info": {
+            "name": "Batch embed contents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:batchEmbedContents",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier (e.g. \"gemini-1.5-pro\")"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batch embed contents"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

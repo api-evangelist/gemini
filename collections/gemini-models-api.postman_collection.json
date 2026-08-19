@@ -1,0 +1,234 @@
+{
+  "item": [
+    {
+      "id": "04c432a3-886b-4d5b-b90d-6563a6b1846a",
+      "name": "Models",
+      "description": {
+        "content": "List and inspect available Gemini models",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1fa966f-6d9e-4306-aa9f-805b647a7f7a",
+          "name": "List available models",
+          "request": {
+            "name": "List available models",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0d150de-6cad-4069-a36e-e78122f57768",
+              "name": "List of models",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"models\": [\n    {\n      \"name\": \"string\",\n      \"baseModelId\": \"string\",\n      \"version\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"inputTokenLimit\": 6164,\n      \"outputTokenLimit\": 8014,\n      \"supportedGenerationMethods\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"baseModelId\": \"string\",\n      \"version\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"inputTokenLimit\": 468,\n      \"outputTokenLimit\": 2891,\n      \"supportedGenerationMethods\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df75bd11-edf7-4b37-b015-39ddfd84a202",
+          "name": "Get model details",
+          "request": {
+            "name": "Get model details",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                ":model"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "model",
+                  "description": "(Required) Model identifier (e.g. \"gemini-1.5-pro\")"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a3f69c6-853a-405b-a229-bb7624d0ef15",
+              "name": "Model metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    ":model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "model",
+                      "description": "(Required) Model identifier (e.g. \"gemini-1.5-pro\")"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"baseModelId\": \"string\",\n  \"version\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"inputTokenLimit\": 5659,\n  \"outputTokenLimit\": 6466,\n  \"supportedGenerationMethods\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://generativelanguage.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bb6ba60c-dbe6-468c-b3c8-fe2bbb5cd8ae",
+    "name": "Google Gemini Embeddings Models API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Google Gemini generative AI models. Supports text generation,\nchat, multimodal input, embeddings, file management, token counting,\nand batch operations. Authenticated with an API key from Google AI Studio.\n\n\nContact Support:\n Name: Gemini API Documentation",
+      "type": "text/plain"
+    }
+  }
+}

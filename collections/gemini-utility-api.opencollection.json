@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Gemini Embeddings Utility API",
+    "version": "v1beta"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Utility",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Count tokens for a prompt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model:countTokens",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier (e.g. \"gemini-1.5-pro\")"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Count tokens for a prompt"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

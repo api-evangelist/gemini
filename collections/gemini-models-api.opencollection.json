@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Gemini Embeddings Models API",
+    "version": "v1beta"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List available models"
+        },
+        {
+          "info": {
+            "name": "Get model details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://generativelanguage.googleapis.com/v1beta/models/:model",
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "path",
+                "description": "Model identifier (e.g. \"gemini-1.5-pro\")"
+              }
+            ]
+          },
+          "docs": "Get model details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,253 @@
+{
+  "item": [
+    {
+      "id": "9c6dacf6-367e-4983-8246-0548be6bbc0d",
+      "name": "Embeddings",
+      "description": {
+        "content": "Create embeddings for text",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eb609004-d5c1-4357-a968-6960c25259fb",
+          "name": "Embed content",
+          "request": {
+            "name": "Embed content",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                "{{model}}:embedContent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": {\n    \"role\": \"<string>\",\n    \"parts\": [\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      },\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"taskType\": \"<string>\",\n  \"title\": \"<string>\",\n  \"outputDimensionality\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12bf4af7-4a74-4e18-89e6-e960d6c2c65b",
+              "name": "Embedding result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    "{{model}}:embedContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"content\": {\n    \"role\": \"user\",\n    \"parts\": [\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      },\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      }\n    ]\n  },\n  \"taskType\": \"<string>\",\n  \"title\": \"<string>\",\n  \"outputDimensionality\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"embedding\": {\n    \"values\": [\n      4533.751737300122,\n      7945.46202550532\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5df61987-1238-43f3-9c3e-51e88708f73d",
+          "name": "Batch embed contents",
+          "request": {
+            "name": "Batch embed contents",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                "{{model}}:batchEmbedContents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"content\": {\n        \"role\": \"<string>\",\n        \"parts\": [\n          {\n            \"text\": \"<string>\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"<string>\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"taskType\": \"<string>\",\n      \"title\": \"<string>\",\n      \"outputDimensionality\": \"<integer>\"\n    },\n    {\n      \"content\": {\n        \"role\": \"<string>\",\n        \"parts\": [\n          {\n            \"text\": \"<string>\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"<string>\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"taskType\": \"<string>\",\n      \"title\": \"<string>\",\n      \"outputDimensionality\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "92ba6db3-5408-4fd5-894c-b911edbb7af0",
+              "name": "Batched embeddings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    "{{model}}:batchEmbedContents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"content\": {\n        \"role\": \"model\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"taskType\": \"string\",\n      \"title\": \"string\",\n      \"outputDimensionality\": 5542\n    },\n    {\n      \"content\": {\n        \"role\": \"model\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"taskType\": \"string\",\n      \"title\": \"string\",\n      \"outputDimensionality\": 2312\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"embeddings\": [\n    {\n      \"values\": [\n        4784.258014604547,\n        1623.4025334695878\n      ]\n    },\n    {\n      \"values\": [\n        5208.857694521519,\n        9262.14463277112\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://generativelanguage.googleapis.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Model identifier (e.g. \"gemini-1.5-pro\")",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "model"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "40bc4fb7-c9a9-49b6-bd77-7aa29cec6e32",
+    "name": "Google Gemini Embeddings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Google Gemini generative AI models. Supports text generation,\nchat, multimodal input, embeddings, file management, token counting,\nand batch operations. Authenticated with an API key from Google AI Studio.\n\n\nContact Support:\n Name: Gemini API Documentation",
+      "type": "text/plain"
+    }
+  }
+}

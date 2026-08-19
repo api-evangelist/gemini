@@ -1,0 +1,253 @@
+{
+  "item": [
+    {
+      "id": "5e550a83-fe6f-419f-95dc-e0820151dd1b",
+      "name": "Generation",
+      "description": {
+        "content": "Generate content from prompts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71b4360d-9f77-45d9-9d66-012d7a6311ea",
+          "name": "Generate content",
+          "request": {
+            "name": "Generate content",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                "{{model}}:generateContent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": [\n    {\n      \"role\": \"<string>\",\n      \"parts\": [\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        }\n      ]\n    },\n    {\n      \"role\": \"<string>\",\n      \"parts\": [\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"systemInstruction\": {\n    \"role\": \"<string>\",\n    \"parts\": [\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      },\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"generationConfig\": {\n    \"temperature\": \"<number>\",\n    \"topP\": \"<number>\",\n    \"topK\": \"<integer>\",\n    \"candidateCount\": \"<integer>\",\n    \"maxOutputTokens\": \"<integer>\",\n    \"stopSequences\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"responseMimeType\": \"<string>\"\n  },\n  \"safetySettings\": [\n    {\n      \"category\": \"<string>\",\n      \"threshold\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"threshold\": \"<string>\"\n    }\n  ],\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4970749d-806d-4e82-a8c5-b70c44316b6a",
+              "name": "Generated content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    "{{model}}:generateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"role\": \"system\",\n      \"parts\": [\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"role\": \"model\",\n      \"parts\": [\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        }\n      ]\n    }\n  ],\n  \"systemInstruction\": {\n    \"role\": \"model\",\n    \"parts\": [\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      },\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      }\n    ]\n  },\n  \"generationConfig\": {\n    \"temperature\": 190.95589243675158,\n    \"topP\": 8451.15840238497,\n    \"topK\": 7974,\n    \"candidateCount\": 597,\n    \"maxOutputTokens\": 7359,\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"responseMimeType\": \"string\"\n  },\n  \"safetySettings\": [\n    {\n      \"category\": \"string\",\n      \"threshold\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"threshold\": \"string\"\n    }\n  ],\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"role\": \"model\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"finishReason\": \"string\",\n      \"index\": 5538\n    },\n    {\n      \"content\": {\n        \"role\": \"user\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"finishReason\": \"string\",\n      \"index\": 1622\n    }\n  ],\n  \"usageMetadata\": {\n    \"promptTokenCount\": 1989,\n    \"candidatesTokenCount\": 9686,\n    \"totalTokenCount\": 1232\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b43c992-1eb6-46ed-b502-79dd3dac57a3",
+          "name": "Stream generated content",
+          "request": {
+            "name": "Stream generated content",
+            "description": {},
+            "url": {
+              "path": [
+                "v1beta",
+                "models",
+                "{{model}}:streamGenerateContent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contents\": [\n    {\n      \"role\": \"<string>\",\n      \"parts\": [\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        }\n      ]\n    },\n    {\n      \"role\": \"<string>\",\n      \"parts\": [\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        },\n        {\n          \"text\": \"<string>\",\n          \"inlineData\": {\n            \"mimeType\": \"<string>\",\n            \"data\": \"<byte>\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"<string>\",\n            \"fileUri\": \"<string>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"systemInstruction\": {\n    \"role\": \"<string>\",\n    \"parts\": [\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      },\n      {\n        \"text\": \"<string>\",\n        \"inlineData\": {\n          \"mimeType\": \"<string>\",\n          \"data\": \"<byte>\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"<string>\",\n          \"fileUri\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"generationConfig\": {\n    \"temperature\": \"<number>\",\n    \"topP\": \"<number>\",\n    \"topK\": \"<integer>\",\n    \"candidateCount\": \"<integer>\",\n    \"maxOutputTokens\": \"<integer>\",\n    \"stopSequences\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"responseMimeType\": \"<string>\"\n  },\n  \"safetySettings\": [\n    {\n      \"category\": \"<string>\",\n      \"threshold\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"threshold\": \"<string>\"\n    }\n  ],\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8b795232-cd3e-4d4b-bde8-312245048918",
+              "name": "Streamed generated content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1beta",
+                    "models",
+                    "{{model}}:streamGenerateContent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contents\": [\n    {\n      \"role\": \"system\",\n      \"parts\": [\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"role\": \"model\",\n      \"parts\": [\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        },\n        {\n          \"text\": \"string\",\n          \"inlineData\": {\n            \"mimeType\": \"string\",\n            \"data\": \"string\"\n          },\n          \"fileData\": {\n            \"mimeType\": \"string\",\n            \"fileUri\": \"string\"\n          }\n        }\n      ]\n    }\n  ],\n  \"systemInstruction\": {\n    \"role\": \"model\",\n    \"parts\": [\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      },\n      {\n        \"text\": \"string\",\n        \"inlineData\": {\n          \"mimeType\": \"string\",\n          \"data\": \"string\"\n        },\n        \"fileData\": {\n          \"mimeType\": \"string\",\n          \"fileUri\": \"string\"\n        }\n      }\n    ]\n  },\n  \"generationConfig\": {\n    \"temperature\": 190.95589243675158,\n    \"topP\": 8451.15840238497,\n    \"topK\": 7974,\n    \"candidateCount\": 597,\n    \"maxOutputTokens\": 7359,\n    \"stopSequences\": [\n      \"string\",\n      \"string\"\n    ],\n    \"responseMimeType\": \"string\"\n  },\n  \"safetySettings\": [\n    {\n      \"category\": \"string\",\n      \"threshold\": \"string\"\n    },\n    {\n      \"category\": \"string\",\n      \"threshold\": \"string\"\n    }\n  ],\n  \"tools\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidates\": [\n    {\n      \"content\": {\n        \"role\": \"model\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"finishReason\": \"string\",\n      \"index\": 5538\n    },\n    {\n      \"content\": {\n        \"role\": \"user\",\n        \"parts\": [\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"text\": \"string\",\n            \"inlineData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"fileData\": {\n              \"mimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fileUri\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      },\n      \"finishReason\": \"string\",\n      \"index\": 1622\n    }\n  ],\n  \"usageMetadata\": {\n    \"promptTokenCount\": 1989,\n    \"candidatesTokenCount\": 9686,\n    \"totalTokenCount\": 1232\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://generativelanguage.googleapis.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Model identifier (e.g. \"gemini-1.5-pro\")",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "model"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "68376137-4a48-47bb-a1ed-2f07602ca319",
+    "name": "Google Gemini Embeddings Generation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for Google Gemini generative AI models. Supports text generation,\nchat, multimodal input, embeddings, file management, token counting,\nand batch operations. Authenticated with an API key from Google AI Studio.\n\n\nContact Support:\n Name: Gemini API Documentation",
+      "type": "text/plain"
+    }
+  }
+}
