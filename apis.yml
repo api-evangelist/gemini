@@ -29,6 +29,24 @@ tags:
 - Document Understanding
 - Embeddings
 - Function Calling
+- Generative AI
+- Image-Generation
+- Large Language Models
+- Machine-Learning
+- Multi-Modal
+- Structured Output
+- Text-to-Speech
+- Video Generation
+- Video Understanding
+tags_raw:
+- Agents
+- Artificial Intelligence
+- Audio Understanding
+- Batch Processing
+- Deep Research
+- Document Understanding
+- Embeddings
+- Function Calling
 - Generative Ai
 - Image Generation
 - Large Language Models
@@ -48,6 +66,10 @@ apis:
   tags:
   - Client Library
   - Python
+  - SDK
+  tags_raw:
+  - Client Library
+  - Python
   - Sdk
   properties:
   - type: Documentation
@@ -65,6 +87,12 @@ apis:
   humanURL: https://ai.google.dev/api/node
   baseURL: https://www.npmjs.com/package/@google/generative-ai
   tags:
+  - Client Library
+  - JavaScript
+  - Node.js
+  - SDK
+  - TypeScript
+  tags_raw:
   - Client Library
   - Javascript
   - Nodejs
@@ -91,6 +119,11 @@ apis:
   - Client Library
   - Go
   - Golang
+  - SDK
+  tags_raw:
+  - Client Library
+  - Go
+  - Golang
   - Sdk
   properties:
   - type: Documentation
@@ -108,6 +141,10 @@ apis:
   tags:
   - Client Library
   - Java
+  - SDK
+  tags_raw:
+  - Client Library
+  - Java
   - Sdk
   properties:
   - type: Documentation
@@ -123,6 +160,11 @@ apis:
   humanURL: https://ai.google.dev/gemini-api/docs/libraries
   baseURL: https://www.nuget.org/packages/Google.GenAI
   tags:
+  - Client Library
+  - C#
+  - Dotnet
+  - SDK
+  tags_raw:
   - Client Library
   - Csharp
   - Dotnet
@@ -146,6 +188,13 @@ apis:
   - Streaming
   - Video
   - Voice
+  - WebSocket
+  tags_raw:
+  - Live
+  - Real-Time
+  - Streaming
+  - Video
+  - Voice
   - Websocket
   properties:
   - type: Documentation
@@ -162,6 +211,15 @@ apis:
   humanURL: https://ai.google.dev/gemini-api/docs/interactions
   baseURL: https://generativelanguage.googleapis.com
   tags:
+  - Agents
+  - Interactions
+  - State Management
+  - Tool Orchestration
+  - Background Execution
+  - Multi-Modal
+  - Managed Agents
+  - Deep Research
+  tags_raw:
   - Agents
   - Interactions
   - State Management
@@ -195,6 +253,11 @@ apis:
   humanURL: https://ai.google.dev/gemini-api/docs/image-generation
   baseURL: https://generativelanguage.googleapis.com
   tags:
+  - Generative AI
+  - Image Editing
+  - Image-Generation
+  - Text-to-Image
+  tags_raw:
   - Generative Ai
   - Image Editing
   - Image Generation
@@ -209,6 +272,12 @@ apis:
   humanURL: https://ai.google.dev/gemini-api/docs/video
   baseURL: https://generativelanguage.googleapis.com
   tags:
+  - Generative AI
+  - Image-to-Video
+  - Text-to-Video
+  - Veo
+  - Video Generation
+  tags_raw:
   - Generative Ai
   - Image-To-Video
   - Text-To-Video
@@ -227,6 +296,12 @@ apis:
   - Audio Generation
   - Multi-Speaker
   - Speech Synthesis
+  - Text-to-Speech
+  - TTS
+  tags_raw:
+  - Audio Generation
+  - Multi-Speaker
+  - Speech Synthesis
   - Text-To-Speech
   - Tts
   properties:
@@ -239,6 +314,12 @@ apis:
   humanURL: https://ai.google.dev/gemini-api/docs/files
   baseURL: https://generativelanguage.googleapis.com
   tags:
+  - Documents
+  - File
+  - Media
+  - Storage
+  - Upload
+  tags_raw:
   - Documents
   - Files
   - Media
@@ -258,6 +339,12 @@ apis:
   humanURL: https://ai.google.dev/gemini-api/docs/embeddings
   baseURL: https://generativelanguage.googleapis.com
   tags:
+  - Embeddings
+  - RAG
+  - Semantic Search
+  - Text Embeddings
+  - Vector Search
+  tags_raw:
   - Embeddings
   - Rag
   - Semantic Search
@@ -364,6 +451,8 @@ apis:
   humanURL: https://ai.google.dev/api
   baseURL: https://generativelanguage.googleapis.com
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
