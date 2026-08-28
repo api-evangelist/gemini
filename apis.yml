@@ -3,6 +3,18 @@ name: Gemini
 description: Google's Gemini API provides access to state-of-the-art generative AI
   models for text generation, multimodal understanding, code generation, and more.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -608,6 +620,9 @@ apis:
   - type: OpenAI Compatibility
     url: https://ai.google.dev/gemini-api/docs/openai
 common:
+- type: CapabilityMap
+  url: capabilities/gemini-capability-edges.yml
+  name: Gemini Business Capability Map
 - type: AgenticAccess
   url: agentic-access/gemini-agentic-access.yml
 - type: DomainSecurity

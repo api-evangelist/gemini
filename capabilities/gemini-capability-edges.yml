@@ -1,0 +1,34 @@
+slug: gemini
+provider: Gemini
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Embeddings
+  spec_file: gemini-embeddings-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.8
+  evidence: POST /v1beta/models/{model}:embedContent  embedContent  Embed content
+  reason: Generating embeddings from a generative AI model is AI/ML model consumption, mapping to Artificial
+    Intelligence Management.
+- tag: Generation
+  spec_file: gemini-generation-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.8
+  evidence: POST /v1beta/models/{model}:generateContent  generateContent  Generate content
+  reason: Text/multimodal generation via AI models is AI capability delivery, mapping to Artificial Intelligence
+    Management.
