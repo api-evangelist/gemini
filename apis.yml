@@ -41,13 +41,13 @@ tags:
 - Document Understanding
 - Embeddings
 - Function Calling
-- Generative AI
+- Generative Ai
 - Image-Generation
 - Large Language Models
 - Machine-Learning
-- Multi-Modal
+- Multimodal
 - Structured Output
-- Text-to-Speech
+- Text-To-Speech
 - Video Generation
 - Video Understanding
 tags_raw:
@@ -78,7 +78,7 @@ apis:
   tags:
   - Client Library
   - Python
-  - SDK
+  - Sdk
   tags_raw:
   - Client Library
   - Python
@@ -100,10 +100,10 @@ apis:
   baseURL: https://www.npmjs.com/package/@google/generative-ai
   tags:
   - Client Library
-  - JavaScript
-  - Node.js
-  - SDK
-  - TypeScript
+  - Javascript
+  - Nodejs
+  - Sdk
+  - Typescript
   tags_raw:
   - Client Library
   - Javascript
@@ -131,7 +131,7 @@ apis:
   - Client Library
   - Go
   - Golang
-  - SDK
+  - Sdk
   tags_raw:
   - Client Library
   - Go
@@ -153,7 +153,7 @@ apis:
   tags:
   - Client Library
   - Java
-  - SDK
+  - Sdk
   tags_raw:
   - Client Library
   - Java
@@ -173,9 +173,9 @@ apis:
   baseURL: https://www.nuget.org/packages/Google.GenAI
   tags:
   - Client Library
-  - C#
+  - Csharp
   - Dotnet
-  - SDK
+  - Sdk
   tags_raw:
   - Client Library
   - Csharp
@@ -200,7 +200,7 @@ apis:
   - Streaming
   - Video
   - Voice
-  - WebSocket
+  - Websocket
   tags_raw:
   - Live
   - Real-Time
@@ -228,7 +228,7 @@ apis:
   - State Management
   - Tool Orchestration
   - Background Execution
-  - Multi-Modal
+  - Multimodal
   - Managed Agents
   - Deep Research
   tags_raw:
@@ -265,10 +265,10 @@ apis:
   humanURL: https://ai.google.dev/gemini-api/docs/image-generation
   baseURL: https://generativelanguage.googleapis.com
   tags:
-  - Generative AI
+  - Generative Ai
   - Image Editing
   - Image-Generation
-  - Text-to-Image
+  - Text-To-Image
   tags_raw:
   - Generative Ai
   - Image Editing
@@ -284,9 +284,9 @@ apis:
   humanURL: https://ai.google.dev/gemini-api/docs/video
   baseURL: https://generativelanguage.googleapis.com
   tags:
-  - Generative AI
-  - Image-to-Video
-  - Text-to-Video
+  - Generative Ai
+  - Image-To-Video
+  - Text-To-Video
   - Veo
   - Video Generation
   tags_raw:
@@ -308,7 +308,7 @@ apis:
   - Audio Generation
   - Multi-Speaker
   - Speech Synthesis
-  - Text-to-Speech
+  - Text-To-Speech
   - TTS
   tags_raw:
   - Audio Generation
