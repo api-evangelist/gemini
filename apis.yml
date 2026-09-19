@@ -44,15 +44,16 @@ tags:
 - Function Calling
 - Generative AI
 - Image-Generation
-- Large Language Models
+- LLM
 - Machine-Learning
 - Multi-Modal
 - Structured Output
 - Text-to-Speech
 - Video Generation
 - Video Understanding
-- Gemini
 tags_raw:
+- Large Language Models
+- Gemini
 - Agents
 - Artificial Intelligence
 - Audio Understanding
