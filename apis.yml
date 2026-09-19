@@ -34,6 +34,8 @@ url: https://raw.githubusercontent.com/api-evangelist/gemini/refs/heads/main/api
 access: 3rd-Party
 specificationVersion: '0.23'
 tags:
+- LLM
+- Gemini
 - Agents
 - Artificial Intelligence
 - Audio Understanding
@@ -44,7 +46,6 @@ tags:
 - Function Calling
 - Generative AI
 - Image-Generation
-- LLM
 - Machine-Learning
 - Multi-Modal
 - Structured Output
