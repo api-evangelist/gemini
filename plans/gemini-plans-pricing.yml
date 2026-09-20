@@ -11,6 +11,11 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: per-call
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
+  managed_tier: Paid
 published: true
 note: Gemini Developer API pricing page listing free/paid/enterprise tiers and per-1M-token prices across
   many models; only a representative subset of the many model rows is captured.
