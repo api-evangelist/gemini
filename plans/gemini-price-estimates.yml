@@ -1,0 +1,24 @@
+# ESTIMATES computed by API Evangelist — not published by the provider. See `note` and `replace_by`.
+generated: '2026-09-20'
+method: estimated
+estimator: 'planning/api-economics/estimate_prices.py — design: ESTIMATION.md'
+note: ESTIMATES, not quotes. Computed by API Evangelist from the prices this provider publishes on https://ai.google.dev/gemini-api/docs/pricing
+  (transcribed in plans/gemini-plans-pricing.yml). Nothing here overrides a published price. Each estimate
+  names the figure it came from, the formula, any assumption, and the field the provider can publish to
+  replace it — publish that and the estimate is retired.
+audience_of_source_pricing: developer-api
+pricing_basis: per-call
+estimate_count: 1
+estimates:
+- kind: marginal_cost
+  grade: A
+  grade_meaning: quoted — the page states this figure
+  usd: 1.5e-07
+  per: token
+  formula: quoted price / quoted unit count
+  inputs:
+  - file: plans/gemini-plans-pricing.yml
+    plan: File search embeddings
+    price_text: Charged for embeddings at $0.15 / 1M tokens.
+  replace_by: 'API Commons Plans — plans[].entries[] with type: metered, `metric` (request | token | transaction
+    | message), `unit` and a numeric `price`; and FinOps `primaryUnit` + `meters[]`'
