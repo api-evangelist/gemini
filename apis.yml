@@ -515,6 +515,8 @@ apis:
   - type: OpenAI Compatibility
     url: https://ai.google.dev/gemini-api/docs/openai
 common:
+- type: Plans
+  url: plans/gemini-plans-pricing.yml
 - type: Website
   url: https://ai.google.dev/gemini-api
 - type: CapabilityMap
