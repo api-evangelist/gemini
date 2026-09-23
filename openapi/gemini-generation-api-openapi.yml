@@ -1,13 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Gemini Embeddings Generation API
+  title: Google Gemini Generation API
   description: 'REST API for Google Gemini generative AI models. Supports text generation,
 
     chat, multimodal input, embeddings, file management, token counting,
 
-    and batch operations. Authenticated with an API key from Google AI Studio.
-
-    '
+    and batch operations. Authenticated with an API key from Google AI Studio.'
   version: v1beta
   contact:
     name: Gemini API Documentation
@@ -66,22 +64,51 @@ paths:
                 $ref: '#/components/schemas/GenerateContentResponse'
 components:
   schemas:
-    UsageMetadata:
+    Candidate:
       type: object
       properties:
-        promptTokenCount:
+        content:
+          $ref: '#/components/schemas/Content'
+        finishReason:
+          type: string
+        index:
           type: integer
-        candidatesTokenCount:
-          type: integer
-        totalTokenCount:
-          type: integer
-    SafetySetting:
+        safetyRatings:
+          type: array
+          items:
+            type: object
+    GenerationConfig:
       type: object
       properties:
-        category:
+        temperature:
+          type: number
+        topP:
+          type: number
+        topK:
+          type: integer
+        candidateCount:
+          type: integer
+        maxOutputTokens:
+          type: integer
+        stopSequences:
+          type: array
+          items:
+            type: string
+        responseMimeType:
           type: string
-        threshold:
+    Content:
+      type: object
+      properties:
+        role:
           type: string
+          enum:
+          - user
+          - model
+          - system
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Part'
     Part:
       type: object
       properties:
@@ -102,6 +129,15 @@ components:
               type: string
             fileUri:
               type: string
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+        candidatesTokenCount:
+          type: integer
+        totalTokenCount:
+          type: integer
     GenerateContentRequest:
       type: object
       required:
@@ -123,32 +159,6 @@ components:
           type: array
           items:
             type: object
-    Content:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          - system
-        parts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Part'
-    Candidate:
-      type: object
-      properties:
-        content:
-          $ref: '#/components/schemas/Content'
-        finishReason:
-          type: string
-        index:
-          type: integer
-        safetyRatings:
-          type: array
-          items:
-            type: object
     GenerateContentResponse:
       type: object
       properties:
@@ -158,24 +168,12 @@ components:
             $ref: '#/components/schemas/Candidate'
         usageMetadata:
           $ref: '#/components/schemas/UsageMetadata'
-    GenerationConfig:
+    SafetySetting:
       type: object
       properties:
-        temperature:
-          type: number
-        topP:
-          type: number
-        topK:
-          type: integer
-        candidateCount:
-          type: integer
-        maxOutputTokens:
-          type: integer
-        stopSequences:
-          type: array
-          items:
-            type: string
-        responseMimeType:
+        category:
+          type: string
+        threshold:
           type: string
   parameters:
     Model:

@@ -1,13 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Gemini Embeddings Files API
+  title: Google Gemini Files API
   description: 'REST API for Google Gemini generative AI models. Supports text generation,
 
     chat, multimodal input, embeddings, file management, token counting,
 
-    and batch operations. Authenticated with an API key from Google AI Studio.
-
-    '
+    and batch operations. Authenticated with an API key from Google AI Studio.'
   version: v1beta
   contact:
     name: Gemini API Documentation

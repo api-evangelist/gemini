@@ -1,13 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Gemini Embeddings Utility API
+  title: Google Gemini Utility API
   description: 'REST API for Google Gemini generative AI models. Supports text generation,
 
     chat, multimodal input, embeddings, file management, token counting,
 
-    and batch operations. Authenticated with an API key from Google AI Studio.
-
-    '
+    and batch operations. Authenticated with an API key from Google AI Studio.'
   version: v1beta
   contact:
     name: Gemini API Documentation
@@ -53,19 +51,6 @@ paths:
                     type: integer
 components:
   schemas:
-    Content:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          - system
-        parts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Part'
     Part:
       type: object
       properties:
@@ -86,6 +71,19 @@ components:
               type: string
             fileUri:
               type: string
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          - system
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Part'
   parameters:
     Model:
       name: model

@@ -1,11 +1,7 @@
 {
   "provider": "gemini",
   "sources": [
-    "gemini-embeddings-api-openapi.yml",
-    "gemini-files-api-openapi.yml",
-    "gemini-generation-api-openapi.yml",
-    "gemini-models-api-openapi.yml",
-    "gemini-utility-api-openapi.yml"
+    "_original/gemini-openapi.yml"
   ],
   "outputs": [
     "gemini-embeddings-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "gemini-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "gemini-embeddings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gemini-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gemini-generation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gemini-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gemini-utility-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
