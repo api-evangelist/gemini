@@ -45,8 +45,8 @@ tags:
 - Embeddings
 - Function Calling
 - Generative AI
-- Image-Generation
-- Machine-Learning
+- Image Generation
+- Machine Learning
 - Multi-Modal
 - Structured Output
 - Text-to-Speech
@@ -72,6 +72,8 @@ tags_raw:
 - Text-To-Speech
 - Video Generation
 - Video Understanding
+- Image-Generation
+- Machine-Learning
 created: '2024'
 modified: '2026-09-15'
 apis:
@@ -265,13 +267,14 @@ apis:
   tags:
   - Generative AI
   - Image Editing
-  - Image-Generation
+  - Image Generation
   - Text-to-Image
   tags_raw:
   - Generative Ai
   - Image Editing
   - Image Generation
   - Text-To-Image
+  - Image-Generation
   properties:
   - type: Documentation
     url: https://ai.google.dev/gemini-api/docs/image-generation
