@@ -59,15 +59,6 @@ paths:
                 $ref: '#/components/schemas/Model'
 components:
   schemas:
-    ListModelsResponse:
-      type: object
-      properties:
-        models:
-          type: array
-          items:
-            $ref: '#/components/schemas/Model'
-        nextPageToken:
-          type: string
     Model:
       type: object
       properties:
@@ -89,6 +80,15 @@ components:
           type: array
           items:
             type: string
+    ListModelsResponse:
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+        nextPageToken:
+          type: string
   parameters:
     Model:
       name: model

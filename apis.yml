@@ -5,15 +5,23 @@ description: Google's Gemini API provides access to state-of-the-art generative 
 type: Index
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - google-gemini/cookbook
+    - google/generative-ai-js
+    - google/generative-ai-python
+    - googleapis/dotnet-genai
+    - googleapis/go-genai
+  open_source: unknown
   commercial: true
   callable_host: true
   label: Hosted service · you call their endpoint
-  confidence: high
+  confidence: low
   source:
   - openapi
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium

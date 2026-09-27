@@ -51,6 +51,19 @@ paths:
                     type: integer
 components:
   schemas:
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          - system
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Part'
     Part:
       type: object
       properties:
@@ -71,19 +84,6 @@ components:
               type: string
             fileUri:
               type: string
-    Content:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          - system
-        parts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Part'
   parameters:
     Model:
       name: model
