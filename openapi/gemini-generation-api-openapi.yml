@@ -64,6 +64,28 @@ paths:
                 $ref: '#/components/schemas/GenerateContentResponse'
 components:
   schemas:
+    Candidate:
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Content'
+        finishReason:
+          type: string
+        index:
+          type: integer
+        safetyRatings:
+          type: array
+          items:
+            type: object
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+        candidatesTokenCount:
+          type: integer
+        totalTokenCount:
+          type: integer
     Part:
       type: object
       properties:
@@ -84,15 +106,19 @@ components:
               type: string
             fileUri:
               type: string
-    GenerateContentResponse:
+    Content:
       type: object
       properties:
-        candidates:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          - system
+        parts:
           type: array
           items:
-            $ref: '#/components/schemas/Candidate'
-        usageMetadata:
-          $ref: '#/components/schemas/UsageMetadata'
+            $ref: '#/components/schemas/Part'
     GenerationConfig:
       type: object
       properties:
@@ -112,19 +138,15 @@ components:
             type: string
         responseMimeType:
           type: string
-    Candidate:
+    GenerateContentResponse:
       type: object
       properties:
-        content:
-          $ref: '#/components/schemas/Content'
-        finishReason:
-          type: string
-        index:
-          type: integer
-        safetyRatings:
+        candidates:
           type: array
           items:
-            type: object
+            $ref: '#/components/schemas/Candidate'
+        usageMetadata:
+          $ref: '#/components/schemas/UsageMetadata'
     SafetySetting:
       type: object
       properties:
@@ -132,28 +154,6 @@ components:
           type: string
         threshold:
           type: string
-    UsageMetadata:
-      type: object
-      properties:
-        promptTokenCount:
-          type: integer
-        candidatesTokenCount:
-          type: integer
-        totalTokenCount:
-          type: integer
-    Content:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          - system
-        parts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Part'
     GenerateContentRequest:
       type: object
       required:

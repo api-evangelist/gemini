@@ -74,6 +74,19 @@ paths:
                       $ref: '#/components/schemas/ContentEmbedding'
 components:
   schemas:
+    EmbedContentRequest:
+      type: object
+      required:
+      - content
+      properties:
+        content:
+          $ref: '#/components/schemas/Content'
+        taskType:
+          type: string
+        title:
+          type: string
+        outputDimensionality:
+          type: integer
     Part:
       type: object
       properties:
@@ -94,18 +107,6 @@ components:
               type: string
             fileUri:
               type: string
-    ContentEmbedding:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            type: number
-    EmbedContentResponse:
-      type: object
-      properties:
-        embedding:
-          $ref: '#/components/schemas/ContentEmbedding'
     Content:
       type: object
       properties:
@@ -119,19 +120,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Part'
-    EmbedContentRequest:
+    ContentEmbedding:
       type: object
-      required:
-      - content
       properties:
-        content:
-          $ref: '#/components/schemas/Content'
-        taskType:
-          type: string
-        title:
-          type: string
-        outputDimensionality:
-          type: integer
+        values:
+          type: array
+          items:
+            type: number
+    EmbedContentResponse:
+      type: object
+      properties:
+        embedding:
+          $ref: '#/components/schemas/ContentEmbedding'
   parameters:
     Model:
       name: model
