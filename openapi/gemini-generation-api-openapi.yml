@@ -64,61 +64,6 @@ paths:
                 $ref: '#/components/schemas/GenerateContentResponse'
 components:
   schemas:
-    Candidate:
-      type: object
-      properties:
-        content:
-          $ref: '#/components/schemas/Content'
-        finishReason:
-          type: string
-        index:
-          type: integer
-        safetyRatings:
-          type: array
-          items:
-            type: object
-    UsageMetadata:
-      type: object
-      properties:
-        promptTokenCount:
-          type: integer
-        candidatesTokenCount:
-          type: integer
-        totalTokenCount:
-          type: integer
-    Part:
-      type: object
-      properties:
-        text:
-          type: string
-        inlineData:
-          type: object
-          properties:
-            mimeType:
-              type: string
-            data:
-              type: string
-              format: byte
-        fileData:
-          type: object
-          properties:
-            mimeType:
-              type: string
-            fileUri:
-              type: string
-    Content:
-      type: object
-      properties:
-        role:
-          type: string
-          enum:
-          - user
-          - model
-          - system
-        parts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Part'
     GenerationConfig:
       type: object
       properties:
@@ -138,6 +83,35 @@ components:
             type: string
         responseMimeType:
           type: string
+    UsageMetadata:
+      type: object
+      properties:
+        promptTokenCount:
+          type: integer
+        candidatesTokenCount:
+          type: integer
+        totalTokenCount:
+          type: integer
+    Content:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+          - user
+          - model
+          - system
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Part'
+    SafetySetting:
+      type: object
+      properties:
+        category:
+          type: string
+        threshold:
+          type: string
     GenerateContentResponse:
       type: object
       properties:
@@ -147,13 +121,19 @@ components:
             $ref: '#/components/schemas/Candidate'
         usageMetadata:
           $ref: '#/components/schemas/UsageMetadata'
-    SafetySetting:
+    Candidate:
       type: object
       properties:
-        category:
+        content:
+          $ref: '#/components/schemas/Content'
+        finishReason:
           type: string
-        threshold:
-          type: string
+        index:
+          type: integer
+        safetyRatings:
+          type: array
+          items:
+            type: object
     GenerateContentRequest:
       type: object
       required:
@@ -175,6 +155,26 @@ components:
           type: array
           items:
             type: object
+    Part:
+      type: object
+      properties:
+        text:
+          type: string
+        inlineData:
+          type: object
+          properties:
+            mimeType:
+              type: string
+            data:
+              type: string
+              format: byte
+        fileData:
+          type: object
+          properties:
+            mimeType:
+              type: string
+            fileUri:
+              type: string
   parameters:
     Model:
       name: model
